@@ -3,12 +3,12 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { union, z } from "zod";
-import AniList from "anilist-node";
+import AniList from "@yuna0x0/anilist-node";
 
 // Create an MCP server for AniList
 const server = new McpServer({
   name: "anilist-mcp",
-  version: "1.0.0",
+  version: "1.0.1",
 });
 
 // Initialize AniList client
