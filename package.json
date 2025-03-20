@@ -1,0 +1,51 @@
+{
+  "name": "anilist-mcp",
+  "version": "1.0.0",
+  "description": "AniList MCP server for accessing AniList API data",
+  "type": "module",
+  "module": "index.ts",
+  "author": "yuna0x0 <yuna@yuna0x0.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yuna0x0/anilist-mcp.git"
+  },
+  "license": "MIT",
+  "bin": {
+    "anilist-mcp": "dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc && shx chmod +x dist/*.js",
+    "prepare": "bun run build",
+    "start": "bun run build && node dist/index.js",
+    "inspector": "bun run build && mcp-inspector node dist/index.js",
+    "watch": "tsc --watch"
+  },
+  "keywords": [
+    "ai",
+    "mcp",
+    "model-context-protocol",
+    "anilist",
+    "api",
+    "llm",
+    "anime",
+    "manga"
+  ],
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.7.0",
+    "anilist-node": "file:/Users/yuna/Documents/Projects/AniList-Node",
+    "dotenv": "^16.4.7",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "@modelcontextprotocol/inspector": "^0.6.0",
+    "shx": "^0.4.0",
+    "typescript": "^5.8.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
