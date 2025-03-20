@@ -1,6 +1,6 @@
 {
   "name": "anilist-mcp",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "AniList MCP server for accessing AniList API data",
   "type": "module",
   "module": "index.ts",

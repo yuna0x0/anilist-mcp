@@ -8,7 +8,7 @@ import AniList from "@yuna0x0/anilist-node";
 // Create an MCP server for AniList
 const server = new McpServer({
   name: "anilist-mcp",
-  version: "1.0.1",
+  version: "1.0.2",
 });
 
 // Initialize AniList client
