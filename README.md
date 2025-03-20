@@ -64,7 +64,7 @@ bun start  # or use npm, yarn, pnpm
 #### Using bunx (without cloning):
 
 ```bash
-ANILIST_TOKEN=your_api_token bunx AniList-mcp
+ANILIST_TOKEN=your_api_token bunx anilist-mcp
 ```
 
 ### Debugging with MCP Inspector
