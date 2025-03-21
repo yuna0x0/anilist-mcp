@@ -103,7 +103,11 @@ export function registerUserTools(server: McpServer, anilist: AniList) {
     "get_user_recent_activity",
     "Get recent activity from a user",
     {
-      user: z.number().describe("The user's AniList ID"),
+      user: z
+        .number()
+        .describe(
+          "The user's AniList ID (Number ID only, DO NOT use username, any kind of string or other types except for numbers.)",
+        ),
     },
     async ({ user }) => {
       try {

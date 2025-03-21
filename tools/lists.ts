@@ -5,7 +5,7 @@ import { requireAuth } from "../utils/auth.js";
 import { UpdateEntryOptionsSchema } from "../utils/schemas.js";
 
 export function registerListsTools(server: McpServer, anilist: AniList) {
-  // anilist.lists.addEntry
+  // anilist.lists.addEntry()
   server.tool(
     "add_list_entry",
     "[Requires Login] Add an entry to the authorized user's list",

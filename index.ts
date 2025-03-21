@@ -10,7 +10,7 @@ import { registerAllTools } from "./tools/index.js";
 // Create an MCP server for AniList
 const server = new McpServer({
   name: "anilist-mcp",
-  version: "1.1.0",
+  version: "1.1.1",
 });
 
 // Initialize AniList client

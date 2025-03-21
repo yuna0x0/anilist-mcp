@@ -7,7 +7,7 @@ import {
 } from "../utils/schemas.js";
 
 export function registerSearchTools(server: McpServer, anilist: AniList) {
-  // anilist.searchEntry.activity
+  // anilist.searchEntry.activity()
   server.tool(
     "search_activity",
     "Search for activities on AniList",
@@ -60,9 +60,19 @@ export function registerSearchTools(server: McpServer, anilist: AniList) {
     "search_anime",
     "Search for anime with query term and filters",
     {
-      term: z.string().describe("Search term for finding anime"),
+      term: z
+        .string()
+        .optional()
+        .describe(
+          `Search term for finding anime (Use undefined when no query term specified.)
+          Query term is used for searching with specific word or title in mind.
+          You SHOULD not include things that can be found in the filter object, such as genre or format (UNLESS user requested it explicitly).
+          Those things should be included in the filter object instead.`,
+        ),
       filter: MediaFilterTypesSchema.optional().describe(
-        "Filter object for searching anime (leave empty for no specific filter)",
+        `Filter object for searching anime.
+        When no filter is specified, you SHOULD use the site default: "{ "sort": "SCORE_DESC", "type": "ANIME" }". UNLESS user requested the filter explicitly).
+        Otherwise, request is likely to fail or return no results.`,
       ),
       page: z
         .number()
@@ -142,9 +152,19 @@ export function registerSearchTools(server: McpServer, anilist: AniList) {
     "search_manga",
     "Search for manga with query term and filters",
     {
-      term: z.string().describe("Search term for finding manga"),
+      term: z
+        .string()
+        .optional()
+        .describe(
+          `Search term for finding manga (Use undefined when no query term specified.)
+          Query term is used for searching with specific word or title in mind.
+          You SHOULD not include things that can be found in the filter object, such as genre or format (UNLESS user requested it explicitly).
+          Those things should be included in the filter object instead.`,
+        ),
       filter: MediaFilterTypesSchema.optional().describe(
-        "Filter object for searching manga (leave empty for no specific filter)",
+        `Filter object for searching manga.
+        When no filter is specified, you SHOULD use the site default: "{ "sort": "SCORE_DESC", "type": "MANGA" }" (UNLESS user requested the filter explicitly).
+        Otherwise, request is likely to fail or return no results.`,
       ),
       page: z
         .number()
@@ -219,7 +239,7 @@ export function registerSearchTools(server: McpServer, anilist: AniList) {
     },
   );
 
-  // anilist.searchEntry.studio
+  // anilist.searchEntry.studio()
   server.tool(
     "search_studio",
     "Search for studios based on a query term",
