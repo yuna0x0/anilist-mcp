@@ -15,7 +15,7 @@ A Model Context Protocol (MCP) server that interfaces with the AniList API, allo
 ### Prerequisites
 
 - Node.js 18+
-- AniList API token (optional, for authenticated operations like personal favorites)
+- AniList API token (optional, for authenticated operations like favourite an anime)
 
 ## Installation
 
@@ -111,35 +111,67 @@ This is particularly useful for testing your setup before connecting it to Claud
 
 ## Available Tools
 
-### Anime Tools
+### Misc Tools
+- `get_genres` - Get all available genres on AniList
+- `get_media_tags` - Get all available media tags on AniList
+- `get_site_statistics` - Get AniList site statistics over the last seven days
+- `get_studio` - Get information about a studio by its AniList ID or name
+- `favourite_studio` - [Requires Login] Favourite or unfavourite a studio by its ID
+
+### Activity Tools
+- `delete_activity` - [Requires Login] Delete the current authorized user's activity post
+- `get_activity` - Get a specific AniList activity by its ID
+- `get_user_activity` - Fetch activities from a user
+- `post_message_activity` - [Requires Login] Post a new message activity or update an existing one
+- `post_text_activity` - [Requires Login] Post a new text activity or update an existing one
+
+### List Tools
+- `get_user_anime_list` - Get a user's anime list
+- `get_user_manga_list` - Get a user's manga list
+- `add_list_entry` - [Requires Login] Add an entry to the authorized user's list
+- `remove_list_entry` - [Requires Login] Remove an entry from the authorized user's list
+- `update_list_entry` - [Requires Login] Update an entry on the authorized user's list
+
+### Media Tools
 - `get_anime` - Get detailed information about an anime by its AniList ID
-- `search_anime` - Search for anime based on a query term
-- `anime_filter` - Search for anime with advanced filters
-
-### Manga Tools
 - `get_manga` - Get detailed information about a manga by its AniList ID
-- `search_manga` - Search for manga based on a query term
-- `manga_filter` - Search for manga with advanced filters
+- `favourite_anime` - [Requires Login] Favourite or unfavourite an anime by its ID
+- `favourite_manga` - [Requires Login] Favourite or unfavourite a manga by its ID
 
-### Character & Staff Tools
+### People Tools
 - `get_character` - Get information about a character by their AniList ID
-- `search_character` - Search for characters based on a query term
 - `get_staff` - Get information about staff member by their AniList ID
+- `favourite_character` - [Requires Login] Favourite or unfavourite a character by its ID
+- `favourite_staff` - [Requires Login] Favourite or unfavourite a staff member by their ID
+- `get_todays_birthday_characters` - Get all characters whose birthday is today
+- `get_todays_birthday_staff` - Get all staff members whose birthday is today
+
+### Recommendation Tools
+- `get_recommendation` - Get an AniList recommendation by its ID
+- `get_recommendations_for_media` - Get AniList recommendations for a specific media
+
+### Search Tools
+- `search_activity` - Search for activities on AniList
+- `search_anime` - Search for anime with query term and filters
+- `search_manga` - Search for manga with query term and filters
+- `search_character` - Search for characters based on a query term
 - `search_staff` - Search for staff members based on a query term
+- `search_studio` - Search for studios based on a query term
+- `search_user` - Search for users on AniList
+
+### Thread Tools
+- `get_thread` - Get a specific thread by its AniList ID
+- `get_thread_comments` - Get comments for a specific thread
+- `delete_thread` - [Requires Login] Delete a thread by its ID
 
 ### User Tools
 - `get_user_profile` - Get a user's AniList profile
 - `get_user_stats` - Get a user's AniList statistics
-- `get_user_anime_list` - Get a user's anime list
-- `get_user_manga_list` - Get a user's manga list
-
-### Studio Tools
-- `get_studio` - Get information about a studio by its AniList ID or name
-- `search_studio` - Search for studios based on a query term
-
-### Genre & Tag Tools
-- `get_genres` - Get all available genres on AniList
-- `get_media_tags` - Get all available media tags on AniList
+- `get_full_user_info` - Get a user's complete profile and stats information
+- `get_user_recent_activity` - Get recent activity from a user
+- `get_authorized_user` - [Requires Login] Get profile information of the currently authorized user
+- `follow_user` - [Requires Login] Follow or unfollow a user by their ID
+- `update_user` - [Requires Login] Update user settings
 
 ## Examples
 

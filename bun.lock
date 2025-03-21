@@ -5,7 +5,7 @@
       "name": "anilist-mcp",
       "dependencies": {
         "@modelcontextprotocol/sdk": "^1.7.0",
-        "@yuna0x0/anilist-node": "^1.14.3",
+        "@yuna0x0/anilist-node": "^1.14.8",
         "dotenv": "^16.4.7",
         "zod": "^3.24.2",
       },
@@ -126,7 +126,7 @@
 
     "@types/prismjs": ["@types/prismjs@1.26.5", "", {}, "sha512-AUZTa7hQ2KY5L7AmtSiqxlhWxb4ina0yd8hNbl4TWuqnv/pFP0nDMb3YrfSBf4hJVGLh2YEIBfKaBW/9UEl6IQ=="],
 
-    "@yuna0x0/anilist-node": ["@yuna0x0/anilist-node@1.14.3", "", { "dependencies": { "abort-controller": "^3.0.0", "node-fetch": "^2.6.11" } }, "sha512-v+1FqZWb1BFjIXXAvijH6bll2tZSrogSCbjHoNLmY7uQCwrLMlE+BoaFJpOp2LS5QMZgyS2UtbmD/a85tssAYw=="],
+    "@yuna0x0/anilist-node": ["@yuna0x0/anilist-node@1.14.8", "", { "dependencies": { "abort-controller": "^3.0.0", "node-fetch": "^2.6.11" } }, "sha512-eF4Fd2/m/B2hkxNEHoHeoOvdVqDt1L0wVDJuNdiwWRdeOIPo4w/aKkqSqAcEfa4odGxnaNznIwfvysuKJOyKqg=="],
 
     "abort-controller": ["abort-controller@3.0.0", "", { "dependencies": { "event-target-shim": "^5.0.0" } }, "sha512-h8lQ8tacZYnR3vNQTgibj+tODHI5/+l06Au2Pcriv/Gmet0eaj4TwWH41sO9wnHDiQsEj19q0drzdWdeAHtweg=="],
 

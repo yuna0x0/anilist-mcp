@@ -1,6 +1,6 @@
 {
   "name": "anilist-mcp",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "AniList MCP server for accessing AniList API data",
   "type": "module",
   "module": "index.ts",
@@ -35,7 +35,7 @@
   ],
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.7.0",
-    "@yuna0x0/anilist-node": "^1.14.3",
+    "@yuna0x0/anilist-node": "^1.14.8",
     "dotenv": "^16.4.7",
     "zod": "^3.24.2"
   },
