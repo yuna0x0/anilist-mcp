@@ -130,6 +130,15 @@ export const NotificationTypeSchema = z.enum([
   "MEDIA_DELETION",
 ]);
 
+export const EntryStatusSchema = z.enum([
+  "CURRENT",
+  "PLANNING",
+  "COMPLETED",
+  "DROPPED",
+  "PAUSED",
+  "REPEATING",
+]);
+
 export const NotificationOptionsSchema = z.object({
   type: NotificationTypeSchema,
   enabled: z.boolean(),
@@ -191,16 +200,7 @@ export const UpdateEntryOptionsSchema = z
   .object({
     id: z.number().describe("The ID of the list entry"),
     mediaId: z.number().describe("The ID of the media to add"),
-    status: z
-      .enum([
-        "CURRENT",
-        "PLANNING",
-        "COMPLETED",
-        "PAUSED",
-        "DROPPED",
-        "REPEATING",
-      ])
-      .describe("The status of the media on the list"),
+    status: EntryStatusSchema.describe("The status of the media on the list"),
     score: z.number().describe("The score given to the media"),
     scoreRaw: z.number().describe("The raw score in 100 point format"),
     progress: z.number().describe("The amount of episodes/chapters consumed"),
