@@ -27,6 +27,21 @@ cd anilist-mcp
 bun install  # or use npm, yarn, pnpm
 ```
 
+## Get an AniList API Token (Optional)
+
+To get an API token, follow these steps:
+
+1. Go to [AniList settings](https://anilist.co/settings/developer).
+2. Click on "Create New Client".
+3. Use this URL as your client's "Redirect URL":
+```
+https://anilist.co/api/v2/oauth/pin
+```
+
+4. Click "Save"
+5. Then go to https://anilist.co/api/v2/oauth/authorize?client_id={clientID}&response_type=token, replace the `{clientID}` with the client ID you get. It will ask you to log in and then provide you with the token to use.
+6. Copy the generated token and use it in your `.env` file or environment variables.
+
 ## API Token Configuration (Optional)
 
 ### Option 1: Using a .env file
@@ -48,8 +63,6 @@ You can also provide the API token directly when running the server:
 ```bash
 ANILIST_TOKEN=your_api_token bun start
 ```
-
-You can get an API token from [AniList settings](https://anilist.co/settings/developer).
 
 ## Usage
 

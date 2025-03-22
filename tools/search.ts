@@ -288,7 +288,7 @@ Otherwise, request is likely to fail or return no results.`,
     },
   );
 
-  // anilist.searchEntry.user
+  // anilist.searchEntry.user()
   server.tool(
     "search_user",
     "Search for users on AniList",

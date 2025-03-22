@@ -4,7 +4,7 @@ import type AniList from "@yuna0x0/anilist-node";
 import { requireAuth } from "../utils/auth.js";
 
 export function registerThreadTools(server: McpServer, anilist: AniList) {
-  // anilist.thread.delete
+  // anilist.thread.delete()
   server.tool(
     "delete_thread",
     "[Requires Login] Delete a thread by its ID",
@@ -38,7 +38,7 @@ export function registerThreadTools(server: McpServer, anilist: AniList) {
     },
   );
 
-  // anilist.thread.get
+  // anilist.thread.get()
   server.tool(
     "get_thread",
     "Get a specific thread by its AniList ID",
@@ -65,7 +65,7 @@ export function registerThreadTools(server: McpServer, anilist: AniList) {
     },
   );
 
-  // anilist.thread.getComments
+  // anilist.thread.getComments()
   server.tool(
     "get_thread_comments",
     "Get comments for a specific thread",

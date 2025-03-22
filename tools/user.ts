@@ -5,7 +5,7 @@ import { requireAuth } from "../utils/auth.js";
 import { UserOptionsInputSchema } from "../utils/schemas.js";
 
 export function registerUserTools(server: McpServer, anilist: AniList) {
-  // anilist.user.all
+  // anilist.user.all()
   server.tool(
     "get_full_user_info",
     "Get a user's complete profile and stats information",
@@ -32,7 +32,7 @@ export function registerUserTools(server: McpServer, anilist: AniList) {
     },
   );
 
-  // anilist.user.follow
+  // anilist.user.follow()
   server.tool(
     "follow_user",
     "[Requires Login] Follow or unfollow a user by their ID",
@@ -68,7 +68,7 @@ export function registerUserTools(server: McpServer, anilist: AniList) {
     },
   );
 
-  // anilist.user.getAuthorized
+  // anilist.user.getAuthorized()
   server.tool(
     "get_authorized_user",
     "[Requires Login] Get profile information of the currently authorized user",
@@ -98,7 +98,7 @@ export function registerUserTools(server: McpServer, anilist: AniList) {
     },
   );
 
-  // anilist.user.getRecentActivity
+  // anilist.user.getRecentActivity()
   server.tool(
     "get_user_recent_activity",
     "Get recent activity from a user",
@@ -183,7 +183,7 @@ export function registerUserTools(server: McpServer, anilist: AniList) {
     },
   );
 
-  // anilist.user.update
+  // anilist.user.update()
   server.tool(
     "update_user",
     "[Requires Login] Update user settings",
