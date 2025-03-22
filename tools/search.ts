@@ -15,9 +15,11 @@ export function registerSearchTools(server: McpServer, anilist: AniList) {
       activityID: z
         .number()
         .optional()
-        .describe("The activity ID to lookup (leave empty for no specific ID)"),
+        .describe(
+          "The activity ID to lookup (leave it as undefined for no specific ID)",
+        ),
       filter: ActivityFilterTypesSchema.optional().describe(
-        "Filter object for searching activities (leave empty for no specific filter)",
+        "Filter object for searching activities (leave it as undefined for no specific filter)",
       ),
       page: z
         .number()
@@ -64,7 +66,7 @@ export function registerSearchTools(server: McpServer, anilist: AniList) {
         .string()
         .optional()
         .describe(
-          `Query term for finding anime (leave empty when no query term specified.)
+          `Query term for finding anime (leave it as undefined when no query term specified.)
 Query term is used for searching with specific word or title in mind.
 
 You SHOULD not include things that can be found in the filter object, such as genre or tag.
@@ -161,7 +163,7 @@ Otherwise, request is likely to fail or return no results.`,
         .string()
         .optional()
         .describe(
-          `Query term for finding manga (leave empty when no query term specified.)
+          `Query term for finding manga (leave it as undefined when no query term specified.)
 Query term is used for searching with specific word or title in mind.
 
 You SHOULD not include things that can be found in the filter object, such as genre or tag.
