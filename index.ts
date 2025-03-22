@@ -11,7 +11,7 @@ dotenv.config();
 // Create an MCP server for AniList
 const server = new McpServer({
   name: "anilist-mcp",
-  version: "1.1.10",
+  version: "1.1.11",
 });
 
 // Initialize AniList client

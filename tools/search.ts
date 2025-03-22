@@ -78,7 +78,7 @@ It is recommended to use tools like 'get_genres' and 'get_media_tags' first.`,
       filter: MediaFilterTypesSchema.optional().describe(
         `Filter object for searching anime.
 You MUST NOT include "{ "type": "ANIME" }" in the filter object. As it is already included in the API call.
-When no sorting method or any filter is specified, you SHOULD use the site default: "{ "sort": "SEARCH_MATCH" }".
+When no sorting method or any filter is specified, you SHOULD use the site default: "{ "sort": ["SEARCH_MATCH"] }".
 Otherwise, request is likely to fail or return no results.`,
       ),
       page: z
@@ -175,7 +175,7 @@ It is recommended to use tools like 'get_genres' and 'get_media_tags' first.`,
       filter: MediaFilterTypesSchema.optional().describe(
         `Filter object for searching manga.
 You MUST NOT include "{ "type": "MANGA" }" in the filter object. As it is already included in the API call.
-When no sorting method or any filter is specified, you SHOULD use the site default: "{ "sort": "SEARCH_MATCH" }".
+When no sorting method or any filter is specified, you SHOULD use the site default: "{ "sort": ["SEARCH_MATCH"] }".
 Otherwise, request is likely to fail or return no results.`,
       ),
       page: z
