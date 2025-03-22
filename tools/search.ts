@@ -1,6 +1,6 @@
 import { z } from "zod";
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import AniList from "@yuna0x0/anilist-node";
+import type AniList from "@yuna0x0/anilist-node";
 import {
   ActivityFilterTypesSchema,
   MediaFilterTypesSchema,

@@ -8,8 +8,8 @@ export { registerSearchTools } from "./search.js";
 export { registerThreadTools } from "./thread.js";
 export { registerUserTools } from "./user.js";
 
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import AniList from "@yuna0x0/anilist-node";
+import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import type AniList from "@yuna0x0/anilist-node";
 import { registerMiscTools } from "./misc.js";
 import { registerActivityTools } from "./activity.js";
 import { registerListsTools } from "./lists.js";
