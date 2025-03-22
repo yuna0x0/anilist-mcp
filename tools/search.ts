@@ -64,16 +64,21 @@ export function registerSearchTools(server: McpServer, anilist: AniList) {
         .string()
         .optional()
         .describe(
-          `Search term for finding anime (Use undefined when no query term specified.)
-          Query term is used for searching with specific word or title in mind.
-          You SHOULD not include things that can be found in the filter object, such as genre or format (UNLESS user requested it explicitly).
-          Those things should be included in the filter object instead.`,
+          `Query term for finding anime (Use 'undefined' when no query term specified. You MUST NOT use 'null'.)
+Query term is used for searching with specific word or title in mind.
+
+You SHOULD not include things that can be found in the filter object, such as genre or tag.
+Those things should be included in the filter object instead.
+
+To check whether a user requested term should be considered as a query term or a filter term.
+It is recommended to use tools like 'get_genres' and 'get_media_tags' first.`,
         ),
-      filter: MediaFilterTypesSchema.optional().describe(
+      filter: MediaFilterTypesSchema.describe(
         `Filter object for searching anime.
-        When no filter is specified, you SHOULD use the site default: "{ "sort": "SCORE_DESC", "type": "ANIME" }". UNLESS user requested the filter explicitly).
-        Otherwise, request is likely to fail or return no results.`,
-      ),
+You MUST NOT include "{ "type": "ANIME" }" in the filter object. As it is already included in the API call.
+When no sorting method or any filter is specified, you SHOULD use the site default: "{ "sort": "SCORE_DESC" }".
+Otherwise, request is likely to fail or return no results.`,
+      ).optional(),
       page: z
         .number()
         .optional()
@@ -156,16 +161,21 @@ export function registerSearchTools(server: McpServer, anilist: AniList) {
         .string()
         .optional()
         .describe(
-          `Search term for finding manga (Use undefined when no query term specified.)
-          Query term is used for searching with specific word or title in mind.
-          You SHOULD not include things that can be found in the filter object, such as genre or format (UNLESS user requested it explicitly).
-          Those things should be included in the filter object instead.`,
+          `Query term for finding manga (Use 'undefined' when no query term specified. You MUST NOT use 'null'.)
+Query term is used for searching with specific word or title in mind.
+
+You SHOULD not include things that can be found in the filter object, such as genre or tag.
+Those things should be included in the filter object instead.
+
+To check whether a user requested term should be considered as a query term or a filter term.
+It is recommended to use tools like 'get_genres' and 'get_media_tags' first.`,
         ),
-      filter: MediaFilterTypesSchema.optional().describe(
+      filter: MediaFilterTypesSchema.describe(
         `Filter object for searching manga.
-        When no filter is specified, you SHOULD use the site default: "{ "sort": "SCORE_DESC", "type": "MANGA" }" (UNLESS user requested the filter explicitly).
-        Otherwise, request is likely to fail or return no results.`,
-      ),
+You MUST NOT include "{ "type": "MANGA" }" in the filter object. As it is already included in the API call.
+When no sorting method or any filter is specified, you SHOULD use the site default: "{ "sort": "SCORE_DESC" }".
+Otherwise, request is likely to fail or return no results.`,
+      ).optional(),
       page: z
         .number()
         .optional()
