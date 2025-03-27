@@ -1,6 +1,6 @@
 {
   "name": "anilist-mcp",
-  "version": "1.1.11",
+  "version": "1.2.0",
   "description": "AniList MCP server for accessing AniList API data",
   "type": "module",
   "module": "index.ts",
@@ -35,14 +35,13 @@
     "manga"
   ],
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.7.0",
+    "@modelcontextprotocol/sdk": "^1.8.0",
     "@yuna0x0/anilist-node": "^1.14.8",
     "dotenv": "^16.4.7",
     "zod": "^3.24.2"
   },
   "devDependencies": {
-    "@modelcontextprotocol/inspector": "^0.6.0",
-    "@types/node": "^22.13.10",
+    "@modelcontextprotocol/inspector": "^0.7.0",
     "rimraf": "^6.0.1",
     "shx": "^0.4.0",
     "typescript": "^5.8.2"

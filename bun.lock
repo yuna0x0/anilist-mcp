@@ -4,14 +4,13 @@
     "": {
       "name": "anilist-mcp",
       "dependencies": {
-        "@modelcontextprotocol/sdk": "^1.7.0",
+        "@modelcontextprotocol/sdk": "^1.8.0",
         "@yuna0x0/anilist-node": "^1.14.8",
         "dotenv": "^16.4.7",
         "zod": "^3.24.2",
       },
       "devDependencies": {
-        "@modelcontextprotocol/inspector": "^0.6.0",
-        "@types/node": "^22.13.10",
+        "@modelcontextprotocol/inspector": "^0.7.0",
         "rimraf": "^6.0.1",
         "shx": "^0.4.0",
         "typescript": "^5.8.2",
@@ -37,13 +36,13 @@
 
     "@jridgewell/trace-mapping": ["@jridgewell/trace-mapping@0.3.9", "", { "dependencies": { "@jridgewell/resolve-uri": "^3.0.3", "@jridgewell/sourcemap-codec": "^1.4.10" } }, "sha512-3Belt6tdc8bPgAtbcmdtNJlirVoTmEb5e2gC94PnkwEW9jI6CAHUeoG85tjWP5WquqfavoMtMwiG4P926ZKKuQ=="],
 
-    "@modelcontextprotocol/inspector": ["@modelcontextprotocol/inspector@0.6.0", "", { "dependencies": { "@modelcontextprotocol/inspector-client": "^0.6.0", "@modelcontextprotocol/inspector-server": "^0.6.0", "concurrently": "^9.0.1", "shell-quote": "^1.8.2", "spawn-rx": "^5.1.2", "ts-node": "^10.9.2" }, "bin": { "mcp-inspector": "bin/cli.js" } }, "sha512-K4CD1rJG7Z2ejvgfuBf8W/7/sfC96r2U1snltoYwC52M94PbUFbgUp2lgr1WHUAmWwUxPXS6PpY72LF1Kke+WQ=="],
+    "@modelcontextprotocol/inspector": ["@modelcontextprotocol/inspector@0.7.0", "", { "dependencies": { "@modelcontextprotocol/inspector-client": "^0.7.0", "@modelcontextprotocol/inspector-server": "^0.7.0", "concurrently": "^9.0.1", "shell-quote": "^1.8.2", "spawn-rx": "^5.1.2", "ts-node": "^10.9.2" }, "bin": { "mcp-inspector": "bin/cli.js" } }, "sha512-gRrCxAf9NwJzOhCds21puUiMoM/ezfIHt9LwA3HkKAI/jnxM+yRcpZfcHnZoKkYTvmtYCgcL4kqR3UsWayMamg=="],
 
-    "@modelcontextprotocol/inspector-client": ["@modelcontextprotocol/inspector-client@0.6.0", "", { "dependencies": { "@modelcontextprotocol/sdk": "^1.6.1", "@radix-ui/react-checkbox": "^1.1.4", "@radix-ui/react-dialog": "^1.1.3", "@radix-ui/react-icons": "^1.3.0", "@radix-ui/react-label": "^2.1.0", "@radix-ui/react-popover": "^1.1.3", "@radix-ui/react-select": "^2.1.2", "@radix-ui/react-slot": "^1.1.0", "@radix-ui/react-tabs": "^1.1.1", "@types/prismjs": "^1.26.5", "class-variance-authority": "^0.7.0", "clsx": "^2.1.1", "cmdk": "^1.0.4", "lucide-react": "^0.447.0", "pkce-challenge": "^4.1.0", "prismjs": "^1.29.0", "react": "^18.3.1", "react-dom": "^18.3.1", "react-simple-code-editor": "^0.14.1", "react-toastify": "^10.0.6", "serve-handler": "^6.1.6", "tailwind-merge": "^2.5.3", "tailwindcss-animate": "^1.0.7", "zod": "^3.23.8" }, "bin": { "mcp-inspector-client": "bin/cli.js" } }, "sha512-vcvve91pBVCzcVz3vLLBtLFY77dfrvmTxYbLa+ysY9m6YMTz6eJSIfmYjcXdTjV4QG6qn6m+5kUtjxCekXT0Rw=="],
+    "@modelcontextprotocol/inspector-client": ["@modelcontextprotocol/inspector-client@0.7.0", "", { "dependencies": { "@modelcontextprotocol/sdk": "^1.6.1", "@radix-ui/react-checkbox": "^1.1.4", "@radix-ui/react-dialog": "^1.1.3", "@radix-ui/react-icons": "^1.3.0", "@radix-ui/react-label": "^2.1.0", "@radix-ui/react-popover": "^1.1.3", "@radix-ui/react-select": "^2.1.2", "@radix-ui/react-slot": "^1.1.0", "@radix-ui/react-tabs": "^1.1.1", "@types/prismjs": "^1.26.5", "class-variance-authority": "^0.7.0", "clsx": "^2.1.1", "cmdk": "^1.0.4", "lucide-react": "^0.447.0", "pkce-challenge": "^4.1.0", "prismjs": "^1.29.0", "react": "^18.3.1", "react-dom": "^18.3.1", "react-simple-code-editor": "^0.14.1", "react-toastify": "^10.0.6", "serve-handler": "^6.1.6", "tailwind-merge": "^2.5.3", "tailwindcss-animate": "^1.0.7", "zod": "^3.23.8" }, "bin": { "mcp-inspector-client": "bin/cli.js" } }, "sha512-8wfFDUhJ7ZgP2lgwqHcwYy1GyVYxkn403Gg8LuQaBl27PkxiJHsfhL/KDRXFJ2pEoE0jeRBqq7jTWwGymkFH5w=="],
 
-    "@modelcontextprotocol/inspector-server": ["@modelcontextprotocol/inspector-server@0.6.0", "", { "dependencies": { "@modelcontextprotocol/sdk": "^1.6.1", "cors": "^2.8.5", "express": "^4.21.0", "ws": "^8.18.0", "zod": "^3.23.8" }, "bin": { "mcp-inspector-server": "build/index.js" } }, "sha512-GFororW8moM8E5TWVx/gXwvT1MQdI1LtVOhkBuDdLcUUqypmxo9yc2c97gkmlYdgI2U7IdR6viuFvUZ9oh4GuQ=="],
+    "@modelcontextprotocol/inspector-server": ["@modelcontextprotocol/inspector-server@0.7.0", "", { "dependencies": { "@modelcontextprotocol/sdk": "^1.6.1", "cors": "^2.8.5", "express": "^4.21.0", "ws": "^8.18.0", "zod": "^3.23.8" }, "bin": { "mcp-inspector-server": "build/index.js" } }, "sha512-2VeqTUJhVYebxzcJdv1GL0UgxMw5kOlhU+vJD0ch3OxOyHkTUM4eVe+a2p3VOCLkNW+DZuhc2x8WXARgXuiXNg=="],
 
-    "@modelcontextprotocol/sdk": ["@modelcontextprotocol/sdk@1.7.0", "", { "dependencies": { "content-type": "^1.0.5", "cors": "^2.8.5", "eventsource": "^3.0.2", "express": "^5.0.1", "express-rate-limit": "^7.5.0", "pkce-challenge": "^4.1.0", "raw-body": "^3.0.0", "zod": "^3.23.8", "zod-to-json-schema": "^3.24.1" } }, "sha512-IYPe/FLpvF3IZrd/f5p5ffmWhMc3aEMuM2wGJASDqC2Ge7qatVCdbfPx3n/5xFeb19xN0j/911M2AaFuircsWA=="],
+    "@modelcontextprotocol/sdk": ["@modelcontextprotocol/sdk@1.8.0", "", { "dependencies": { "content-type": "^1.0.5", "cors": "^2.8.5", "cross-spawn": "^7.0.3", "eventsource": "^3.0.2", "express": "^5.0.1", "express-rate-limit": "^7.5.0", "pkce-challenge": "^4.1.0", "raw-body": "^3.0.0", "zod": "^3.23.8", "zod-to-json-schema": "^3.24.1" } }, "sha512-e06W7SwrontJDHwCawNO5SGxG+nU9AAx+jpHHZqGl/WrDBdWOpvirC+s58VpJTB5QemI4jTRcjWT4Pt3Q1NPQQ=="],
 
     "@nodelib/fs.scandir": ["@nodelib/fs.scandir@2.1.5", "", { "dependencies": { "@nodelib/fs.stat": "2.0.5", "run-parallel": "^1.1.9" } }, "sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g=="],
 
