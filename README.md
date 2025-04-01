@@ -10,98 +10,11 @@ A Model Context Protocol (MCP) server that interfaces with the AniList API, allo
 - Support for advanced filtering options
 - Retrieve genres and media tags
 
-## Installation
-
-### Prerequisites
+## Prerequisites
 
 - Node.js 18+
-- AniList API token (optional, for authenticated operations like favourite an anime)
 
-## Installation
-
-Clone the repository and install dependencies:
-
-```bash
-git clone https://github.com/yuna0x0/anilist-mcp.git
-cd anilist-mcp
-bun install  # or use npm, yarn, pnpm
-```
-
-## Get an AniList API Token (Optional)
-
-To get an API token, follow these steps:
-
-1. Go to [AniList settings](https://anilist.co/settings/developer).
-2. Click on "Create New Client".
-3. Use this URL as your client's "Redirect URL":
-```
-https://anilist.co/api/v2/oauth/pin
-```
-
-4. Click "Save"
-5. Then go to https://anilist.co/api/v2/oauth/authorize?client_id={clientID}&response_type=token, replace the `{clientID}` with the client ID you get. It will ask you to log in and then provide you with the token to use.
-6. Copy the generated token and use it in your `.env` file or environment variables.
-
-## API Token Configuration (Optional)
-
-### Option 1: Using a .env file
-
-1. Create a `.env` file by copying the example:
-   ```bash
-   cp .env.example .env
-   ```
-
-2. Edit the `.env` file and add your AniList API token:
-   ```
-   ANILIST_TOKEN=your_api_token
-   ```
-
-### Option 2: Using environment variables inline
-
-You can also provide the API token directly when running the server:
-
-```bash
-ANILIST_TOKEN=your_api_token bun start
-```
-
-## Usage
-
-### Start the MCP server
-
-#### Local installation:
-
-```bash
-bun start  # or use npm, yarn, pnpm
-```
-
-#### Using bunx (without cloning):
-
-```bash
-ANILIST_TOKEN=your_api_token bunx anilist-mcp
-```
-
-### Debugging with MCP Inspector
-
-You can use the MCP Inspector to test and debug the AniList MCP server:
-
-```bash
-# Using the package.json script
-bun run inspector  # or use npm, yarn, pnpm
-
-# Alternative: Direct use with bunx (or npx)
-bunx @modelcontextprotocol/inspector -e ANILIST_TOKEN=your_api_token bunx anilist-mcp
-```
-
-Then open your browser to the provided URL (usually http://localhost:5173) to access the MCP Inspector interface. From there, you can:
-
-1. Connect to your running AniList MCP server
-2. Browse available tools
-3. Run tools with custom parameters
-4. View the responses
-
-This is particularly useful for testing your setup before connecting it to Claude or another AI assistant.
-
-### Using with Claude Desktop or other MCP clients
+## Using with Claude Desktop (or other MCP clients)
 
 1. Add this server to your `claude_desktop_config.json`:
 
@@ -119,8 +32,29 @@ This is particularly useful for testing your setup before connecting it to Claud
 }
 ```
 
+You may remove the `env` object entirely, if you are not planning to use the AniList Token for operations that require login.
+
 2. Restart Claude Desktop
 3. Use the tools to interact with AniList
+
+## Environment Variables
+
+- `ANILIST_TOKEN`: (Optional) AniList API Token (Only needed for operations that require login)
+
+### Get an AniList API Token (Optional)
+
+To get an API token, follow these steps:
+
+1. Go to [AniList settings](https://anilist.co/settings/developer).
+2. Click on "Create New Client".
+3. Use this URL as your client's "Redirect URL":
+```
+https://anilist.co/api/v2/oauth/pin
+```
+
+4. Click "Save"
+5. Then go to https://anilist.co/api/v2/oauth/authorize?client_id={clientID}&response_type=token, replace the `{clientID}` with the client ID you get. It will ask you to log in and then provide you with the token to use.
+6. Copy the generated token and use it in your `.env` file or environment variables.
 
 ## Available Tools
 
@@ -206,6 +140,54 @@ Can you tell me about the character Hitori Gotou? Use the AniList tools to find 
 What anime has Studio Ghibli produced? Can you list their most popular works?
 ```
 
+## Local Development
+
+This project uses [Bun](https://bun.sh) as its package manager. You should install it if you haven't already.
+
+Clone the repository and install dependencies:
+
+```bash
+git clone https://github.com/yuna0x0/anilist-mcp.git
+cd anilist-mcp
+bun install
+```
+
+### Configuration (Optional)
+
+1. Create a `.env` file by copying the example:
+```bash
+cp .env.example .env
+```
+
+2. Edit the `.env` file and add your AniList API token:
+```
+ANILIST_TOKEN=your_api_token
+```
+
+## Debugging with MCP Inspector
+
+You can use the MCP Inspector to test and debug the AniList MCP server:
+
+```bash
+npx @modelcontextprotocol/inspector -e ANILIST_TOKEN=your_api_token npx anilist-mcp
+
+# Use this instead when Local Development
+bun run inspector
+```
+
+Then open your browser to the provided URL (usually http://localhost:5173) to access the MCP Inspector interface. From there, you can:
+
+1. Connect to your running AniList MCP server
+2. Browse available tools
+3. Run tools with custom parameters
+4. View the responses
+
+This is particularly useful for testing your setup before connecting it to Claude or another AI assistant.
+
+## Security Notice
+
+This MCP server accepts your AniList API token in the .env file or as an environment variable. Keep this information secure and never commit it to version control.
+
 ## License
 
-MIT License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
