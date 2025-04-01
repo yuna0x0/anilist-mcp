@@ -120,7 +120,7 @@ https://anilist.co/api/v2/oauth/pin
 - `follow_user` - [Requires Login] Follow or unfollow a user by their ID
 - `update_user` - [Requires Login] Update user settings
 
-## Examples
+## Example Usage
 
 ### Basic Anime Search
 
@@ -183,6 +183,18 @@ Then open your browser to the provided URL (usually http://localhost:5173) to ac
 4. View the responses
 
 This is particularly useful for testing your setup before connecting it to Claude or another AI assistant.
+
+## Docker
+
+Pull from Docker Hub:
+```bash
+docker pull yuna0x0/anilist-mcp
+```
+
+Docker build (Local Development):
+```bash
+docker build -t yuna0x0/anilist-mcp .
+```
 
 ## Security Notice
 
