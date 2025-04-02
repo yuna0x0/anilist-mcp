@@ -1,4 +1,5 @@
 # AniList MCP Server
+[![smithery badge](https://smithery.ai/badge/@yuna0x0/anilist-mcp)](https://smithery.ai/server/@yuna0x0/anilist-mcp)
 
 A Model Context Protocol (MCP) server that interfaces with the AniList API, allowing LLM clients to access and interact with anime, manga, character, staff, and user data from AniList.
 
@@ -15,6 +16,28 @@ A Model Context Protocol (MCP) server that interfaces with the AniList API, allo
 - Node.js 18+
 
 ## Using with Claude Desktop (or other MCP clients)
+
+### Installing via Smithery
+
+To install AniList MCP Server for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@yuna0x0/anilist-mcp):
+
+```bash
+npx -y @smithery/cli install @yuna0x0/anilist-mcp --client claude
+
+# For other MCP clients, use the following command:
+# List available clients
+npx -y @smithery/cli list clients
+# Install to other clients
+npx -y @smithery/cli install @yuna0x0/anilist-mcp --client <client_name>
+```
+
+### Installing via mcp-get
+
+```bash
+npx @michaellatman/mcp-get@latest install anilist-mcp
+```
+
+### Manual Installation
 
 1. Add this server to your `claude_desktop_config.json`:
 
