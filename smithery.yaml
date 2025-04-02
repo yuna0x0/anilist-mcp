@@ -1,0 +1,18 @@
+# Smithery configuration file: https://smithery.ai/docs/config#smitheryyaml
+
+startCommand:
+  type: stdio
+  configSchema:
+    # JSON Schema defining the configuration options for the MCP.
+    type: object
+    properties:
+      anilistToken:
+        type: string
+        default: ""
+        description: AniList API token. Leave empty if not required.
+  commandFunction:
+    # A JS function that produces the CLI command based on the given config to start the MCP on stdio.
+    |-
+    (config) => { return { command: 'node', args: ['dist/index.js'], env: config.anilistToken ? { ANILIST_TOKEN: config.anilistToken } : {} }; }
+  exampleConfig:
+    anilistToken: your_api_token_here
