@@ -7,7 +7,7 @@ export function registerPeopleTools(server: McpServer, anilist: AniList) {
   // anilist.people.character()
   server.tool(
     "get_character",
-    "Get information about a character by their AniList ID",
+    "Get information about a character by their AniList ID or name",
     {
       id: z
         .union([z.number(), z.string()])
