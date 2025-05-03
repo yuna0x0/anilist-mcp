@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/yuna0x0-anilist-mcp-badge.png)](https://mseep.ai/app/yuna0x0-anilist-mcp)
+
 # AniList MCP Server
 [![smithery badge](https://smithery.ai/badge/@yuna0x0/anilist-mcp)](https://smithery.ai/server/@yuna0x0/anilist-mcp)
 
