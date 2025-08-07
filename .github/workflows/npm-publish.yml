@@ -1,0 +1,40 @@
+name: Publish Package to npmjs
+on:
+  workflow_dispatch:
+  # release:
+  #   types: [published]
+  # push:
+  #   tags: ['v*']
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: release
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          run_install: false
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: "pnpm"
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Update npm
+        run: npm install -g npm@latest
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      # https://github.com/pnpm/pnpm/issues/5894
+      # Adding --no-git-checks due to a bug in pnpm that causes it to fail when publishing from tag commit.
+      - name: Publish npm package
+        run: pnpm publish --provenance --access public --no-git-checks

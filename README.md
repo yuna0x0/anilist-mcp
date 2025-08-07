@@ -1,5 +1,4 @@
 # AniList MCP Server
-[![smithery badge](https://smithery.ai/badge/@yuna0x0/anilist-mcp)](https://smithery.ai/server/@yuna0x0/anilist-mcp)
 
 A Model Context Protocol (MCP) server that interfaces with the AniList API, allowing LLM clients to access and interact with anime, manga, character, staff, and user data from AniList.
 
@@ -165,14 +164,14 @@ What anime has Studio Ghibli produced? Can you list their most popular works?
 
 ## Local Development
 
-This project uses [Bun](https://bun.sh) as its package manager. You should install it if you haven't already.
+This project uses [pnpm](https://pnpm.io) as its package manager.
 
 Clone the repository and install dependencies:
 
 ```bash
 git clone https://github.com/yuna0x0/anilist-mcp.git
 cd anilist-mcp
-bun install
+pnpm install
 ```
 
 ### Configuration (Optional)
@@ -195,10 +194,10 @@ You can use the MCP Inspector to test and debug the AniList MCP server:
 npx @modelcontextprotocol/inspector -e ANILIST_TOKEN=your_api_token npx anilist-mcp
 
 # Use this instead when Local Development
-bun run inspector
+pnpm run inspector
 ```
 
-Then open your browser to the provided URL (usually http://127.0.0.1:6274) to access the MCP Inspector interface. From there, you can:
+Then open your browser to the provided URL (usually http://localhost:6274) to access the MCP Inspector interface. From there, you can:
 
 1. Connect to your running AniList MCP server
 2. Browse available tools

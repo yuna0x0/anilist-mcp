@@ -1,6 +1,6 @@
 {
   "name": "anilist-mcp",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "AniList MCP server for accessing AniList API data",
   "type": "module",
   "module": "index.ts",
@@ -18,10 +18,10 @@
   ],
   "scripts": {
     "clean": "rimraf 'dist/'",
-    "build": "bun run clean && tsc && shx chmod +x dist/*.js",
-    "prepare": "bun run build",
-    "start": "bun run build && node dist/index.js",
-    "inspector": "bun run build && mcp-inspector node dist/index.js",
+    "build": "pnpm run clean && tsc && shx chmod +x dist/*.js",
+    "prepare": "pnpm run build",
+    "start": "pnpm run build && node dist/index.js",
+    "inspector": "pnpm run build && mcp-inspector node dist/index.js",
     "watch": "tsc --watch"
   },
   "keywords": [
@@ -35,18 +35,19 @@
     "manga"
   ],
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.9.0",
+    "@modelcontextprotocol/sdk": "^1.17.1",
     "@yuna0x0/anilist-node": "^1.14.8",
-    "dotenv": "^16.5.0",
-    "zod": "^3.24.2"
+    "dotenv": "^17.2.1",
+    "zod": "^3.25.76"
   },
   "devDependencies": {
-    "@modelcontextprotocol/inspector": "^0.8.2",
+    "@modelcontextprotocol/inspector": "^0.16.2",
     "rimraf": "^6.0.1",
     "shx": "^0.4.0",
-    "typescript": "^5.8.3"
+    "typescript": "^5.9.2"
   },
   "engines": {
     "node": ">=18.0.0"
-  }
+  },
+  "packageManager": "pnpm@10.14.0+sha512.ad27a79641b49c3e481a16a805baa71817a04bbe06a38d17e60e2eaee83f6a146c6a688125f5792e48dd5ba30e7da52a5cda4c3992b9ccf333f9ce223af84748"
 }
