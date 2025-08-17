@@ -1,4 +1,5 @@
 # AniList MCP Server
+[![Trust Score](https://archestra.ai/mcp-catalog/api/badge/quality/yuna0x0/anilist-mcp)](https://archestra.ai/mcp-catalog/yuna0x0__anilist-mcp)
 
 A Model Context Protocol (MCP) server that interfaces with the AniList API, allowing LLM clients to access and interact with anime, manga, character, staff, and user data from AniList.
 
