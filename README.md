@@ -208,19 +208,37 @@ This is particularly useful for testing your setup before connecting it to Claud
 
 ## Docker
 
-Pull from Docker Hub:
+The project automatically builds and publishes multi-platform Docker images to GitHub Container Registry via GitHub Actions.
+
+Pull the latest image:
 ```bash
-docker pull yuna0x0/anilist-mcp
+docker pull ghcr.io/yuna0x0/anilist-mcp:latest
 ```
 
-Docker build (Local Development):
+Pull a specific version:
 ```bash
-docker build -t yuna0x0/anilist-mcp .
+docker pull ghcr.io/yuna0x0/anilist-mcp:v1.2.5
 ```
 
-Docker multi-platform build (Local Development):
+Run the container:
 ```bash
-docker buildx build --platform linux/amd64,linux/arm64 -t yuna0x0/anilist-mcp .
+# Basic usage
+docker run --rm -it ghcr.io/yuna0x0/anilist-mcp:latest
+
+# With AniList token
+docker run --rm -it -e ANILIST_TOKEN=your_token ghcr.io/yuna0x0/anilist-mcp:latest
+```
+
+Available platforms: `linux/amd64`, `linux/arm64`
+
+### Local Development
+
+```bash
+# Docker build
+docker build -t anilist-mcp .
+
+# Multi-platform build
+docker buildx build --platform linux/amd64,linux/arm64 -t anilist-mcp .
 ```
 
 ## Security Notice
