@@ -12,7 +12,7 @@ A Model Context Protocol (MCP) server that interfaces with the AniList API, allo
 - **Dual transport support**: Both HTTP and STDIO transports
 - **Cloud deployment ready**: Support Smithery and other platforms
 
-## Prerequisites
+## Requirements
 
 - Node.js 18+
 
