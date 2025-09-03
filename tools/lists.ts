@@ -1,10 +1,15 @@
 import { z } from "zod";
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import type AniList from "@yuna0x0/anilist-node";
+import type { ConfigSchema } from "../utils/schemas.js";
 import { requireAuth } from "../utils/auth.js";
 import { UpdateEntryOptionsSchema } from "../utils/schemas.js";
 
-export function registerListsTools(server: McpServer, anilist: AniList) {
+export function registerListsTools(
+  server: McpServer,
+  anilist: AniList,
+  config: z.infer<typeof ConfigSchema>,
+) {
   // anilist.lists.addEntry()
   server.tool(
     "add_list_entry",
@@ -15,7 +20,7 @@ export function registerListsTools(server: McpServer, anilist: AniList) {
     },
     async ({ id, options }) => {
       try {
-        const auth = requireAuth();
+        const auth = requireAuth(config.anilistToken);
         if (!auth.isAuthorized) {
           return auth.errorResponse;
         }
@@ -101,7 +106,7 @@ export function registerListsTools(server: McpServer, anilist: AniList) {
     },
     async ({ id }) => {
       try {
-        const auth = requireAuth();
+        const auth = requireAuth(config.anilistToken);
         if (!auth.isAuthorized) {
           return auth.errorResponse;
         }
@@ -136,7 +141,7 @@ export function registerListsTools(server: McpServer, anilist: AniList) {
     },
     async ({ id, options }) => {
       try {
-        const auth = requireAuth();
+        const auth = requireAuth(config.anilistToken);
         if (!auth.isAuthorized) {
           return auth.errorResponse;
         }

@@ -1,9 +1,14 @@
 import { z } from "zod";
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import type AniList from "@yuna0x0/anilist-node";
+import type { ConfigSchema } from "../utils/schemas.js";
 import { requireAuth } from "../utils/auth.js";
 
-export function registerActivityTools(server: McpServer, anilist: AniList) {
+export function registerActivityTools(
+  server: McpServer,
+  anilist: AniList,
+  config: z.infer<typeof ConfigSchema>,
+) {
   // anilist.activity.delete()
   server.tool(
     "delete_activity",
@@ -13,7 +18,7 @@ export function registerActivityTools(server: McpServer, anilist: AniList) {
     },
     async ({ id }) => {
       try {
-        const auth = requireAuth();
+        const auth = requireAuth(config.anilistToken);
         if (!auth.isAuthorized) {
           return auth.errorResponse;
         }
@@ -127,7 +132,7 @@ export function registerActivityTools(server: McpServer, anilist: AniList) {
     },
     async ({ text, recipientId, isPrivate, id }) => {
       try {
-        const auth = requireAuth();
+        const auth = requireAuth(config.anilistToken);
         if (!auth.isAuthorized) {
           return auth.errorResponse;
         }
@@ -168,7 +173,7 @@ export function registerActivityTools(server: McpServer, anilist: AniList) {
     },
     async ({ text, id }) => {
       try {
-        const auth = requireAuth();
+        const auth = requireAuth(config.anilistToken);
         if (!auth.isAuthorized) {
           return auth.errorResponse;
         }

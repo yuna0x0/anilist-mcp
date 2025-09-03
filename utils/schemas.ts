@@ -1,5 +1,12 @@
 import { z } from "zod";
 
+export const ConfigSchema = z.object({
+  anilistToken: z
+    .string()
+    .optional()
+    .describe("AniList API token for authenticated requests"),
+});
+
 export const MediaTypeSchema = z.enum(["ANIME", "MANGA"]);
 
 export const MediaFormatSchema = z.enum([

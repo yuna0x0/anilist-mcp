@@ -9,24 +9,22 @@ A Model Context Protocol (MCP) server that interfaces with the AniList API, allo
 - Access user profiles and lists
 - Support for advanced filtering options
 - Retrieve genres and media tags
+- **Dual transport support**: Both HTTP and STDIO transports
+- **Cloud deployment ready**: Support Smithery and other platforms
 
 ## Prerequisites
 
 - Node.js 18+
 
-## Using with Claude Desktop (or other MCP clients)
+## Local Installation (STDIO Transport)
 
 ### Installing via Smithery
-
-To install AniList MCP Server for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@yuna0x0/anilist-mcp):
 
 ```bash
 npx -y @smithery/cli install @yuna0x0/anilist-mcp --client claude
 
-# For other MCP clients, use the following command:
-# List available clients
+# For other MCP clients:
 npx -y @smithery/cli list clients
-# Install to other clients
 npx -y @smithery/cli install @yuna0x0/anilist-mcp --client <client_name>
 ```
 
@@ -38,7 +36,7 @@ npx @michaellatman/mcp-get@latest install anilist-mcp
 
 ### Manual Installation
 
-1. Add this server to your `claude_desktop_config.json`:
+1. Add this server to your `mcp.json` / `claude_desktop_config.json`:
 
 ```json
 {
@@ -56,12 +54,39 @@ npx @michaellatman/mcp-get@latest install anilist-mcp
 
 You may remove the `env` object entirely, if you are not planning to use the AniList Token for operations that require login.
 
-2. Restart Claude Desktop
+2. Restart your MCP client (e.g., Claude Desktop)
 3. Use the tools to interact with AniList
 
-## Environment Variables
+## Server Deployment (HTTP Transport)
 
+### Self-Hosting
+Follow the [Local Development](#local-development) instructions to set up the project locally, then run:
+```bash
+pnpm run start:http
+```
+This will start the server on port 8081 by default. You can change the port by setting the `PORT` environment variable.
+
+### Cloud Deployment
+
+You can deploy this MCP server to any cloud platform that supports Node.js server applications.
+
+You can also deploy via MCP platforms like [Smithery](https://smithery.ai/server/@yuna0x0/anilist-mcp).
+
+## Configuration
+### Environment Variables (STDIO Transport and HTTP Transport server where host provides the config)
+
+When using the STDIO transport or hosting the HTTP transport server, you can pass configuration via environment variables:
 - `ANILIST_TOKEN`: (Optional) AniList API Token (Only needed for operations that require login)
+
+> [!CAUTION]
+> If you are hosting the HTTP transport server with token pre-configured, you should protect your endpoint and implement authentication before allowing users to access it. Otherwise, anyone can access your MCP server while using your AniList token.
+
+### HTTP Headers (HTTP Transport where user provides the config)
+
+When using the HTTP transport, user can pass configuration via HTTP headers:
+- `Anilist-Token`: (Optional) AniList API Token (Only needed for operations that require login)
+
+If the user provides the token in the header, while the server also has `ANILIST_TOKEN` set, the header value will take precedence.
 
 ### Get an AniList API Token (Optional)
 
@@ -178,7 +203,7 @@ pnpm install
 
 1. Create a `.env` file by copying the example:
 ```bash
-cp .env.example .env
+cp env.example .env
 ```
 
 2. Edit the `.env` file and add your AniList API token:
@@ -204,7 +229,7 @@ Then open your browser to the provided URL (usually http://localhost:6274) to ac
 3. Run tools with custom parameters
 4. View the responses
 
-This is particularly useful for testing your setup before connecting it to Claude or another AI assistant.
+This is particularly useful for testing your setup before connecting it to MCP clients like Claude Desktop.
 
 ## Docker
 
@@ -225,7 +250,7 @@ docker buildx build --platform linux/amd64,linux/arm64 -t yuna0x0/anilist-mcp .
 
 ## Security Notice
 
-This MCP server accepts your AniList API token in the .env file or as an environment variable. Keep this information secure and never commit it to version control.
+This MCP server accepts your AniList API token in the .env file, environment variable or HTTP header. Keep this information secure and never commit it to version control.
 
 ## License
 

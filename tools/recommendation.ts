@@ -1,6 +1,7 @@
 import { z } from "zod";
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import type AniList from "@yuna0x0/anilist-node";
+import type { ConfigSchema } from "../utils/schemas.js";
 
 export function registerRecommendationTools(
   server: McpServer,
