@@ -18,24 +18,6 @@ A Model Context Protocol (MCP) server that interfaces with the AniList API, allo
 
 ## Local Installation (STDIO Transport)
 
-### Installing via Smithery
-
-```bash
-npx -y @smithery/cli install @yuna0x0/anilist-mcp --client claude
-
-# For other MCP clients:
-npx -y @smithery/cli list clients
-npx -y @smithery/cli install @yuna0x0/anilist-mcp --client <client_name>
-```
-
-### Installing via mcp-get
-
-```bash
-npx @michaellatman/mcp-get@latest install anilist-mcp
-```
-
-### Manual Installation
-
 1. Add this server to your `mcp.json` / `claude_desktop_config.json`:
 
 ```json
