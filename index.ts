@@ -51,7 +51,7 @@ function parseConfig(req: Request) {
 function createServer({ config }: { config: z.infer<typeof ConfigSchema> }) {
   const server = new McpServer({
     name: "anilist-mcp",
-    version: "1.3.0",
+    version: "1.3.1",
   });
 
   // Initialize AniList client with token from config or environment
