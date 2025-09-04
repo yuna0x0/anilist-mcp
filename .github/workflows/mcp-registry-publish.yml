@@ -17,7 +17,7 @@ jobs:
 
       - name: Setup MCP Publisher
         run: |
-          curl -LO https://github.com/modelcontextprotocol/registry/releases/latest/download/mcp-publisher-linux-amd64
+          curl -LO https://github.com/yuna0x0/mcp-registry/releases/latest/download/mcp-publisher-linux-amd64
           chmod +x mcp-publisher-linux-amd64
 
       - name: Login to Registry
