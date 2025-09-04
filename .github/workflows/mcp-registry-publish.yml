@@ -1,0 +1,27 @@
+name: Publish to MCP Registry
+on:
+  workflow_dispatch:
+  # release:
+  #   types: [published]
+  # push:
+  #   tags: ['v*']
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write # Required for OIDC
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup MCP Publisher
+        run: |
+          curl -LO https://github.com/modelcontextprotocol/registry/releases/latest/download/mcp-publisher-linux-amd64
+          chmod +x mcp-publisher-linux-amd64
+
+      - name: Login to Registry
+        run: ./mcp-publisher-linux-amd64 login github-oidc
+
+      - name: Publish to Registry
+        run: ./mcp-publisher-linux-amd64 publish
