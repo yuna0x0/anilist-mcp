@@ -1,0 +1,232 @@
+{
+  "manifest_version": "0.1",
+  "name": "anilist-mcp",
+  "display_name": "AniList MCP",
+  "version": "1.3.1",
+  "description": "AniList MCP server for accessing AniList API data",
+  "author": {
+    "name": "yuna0x0",
+    "email": "yuna@yuna0x0.com",
+    "url": "https://yuna0x0.com"
+  },
+  "homepage": "https://github.com/yuna0x0/anilist-mcp",
+  "server": {
+    "type": "node",
+    "entry_point": "dist/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/dist/index.js"],
+      "env": {
+        "ANILIST_TOKEN": "${user_config.anilist_token}"
+      }
+    }
+  },
+  "tools": [
+    {
+      "name": "get_genres",
+      "description": "Get all available genres on AniList"
+    },
+    {
+      "name": "get_media_tags",
+      "description": "Get all available media tags on AniList"
+    },
+    {
+      "name": "get_site_statistics",
+      "description": "Get AniList site statistics over the last seven days"
+    },
+    {
+      "name": "get_studio",
+      "description": "Get information about a studio by its AniList ID or name"
+    },
+    {
+      "name": "favourite_studio",
+      "description": "[Requires Login] Favourite or unfavourite a studio by its ID"
+    },
+    {
+      "name": "delete_activity",
+      "description": "[Requires Login] Delete the current authorized user's activity post"
+    },
+    {
+      "name": "get_activity",
+      "description": "Get a specific AniList activity by its ID"
+    },
+    {
+      "name": "get_user_activity",
+      "description": "Fetch activities from a user"
+    },
+    {
+      "name": "post_message_activity",
+      "description": "[Requires Login] Post a new message activity or update an existing one"
+    },
+    {
+      "name": "post_text_activity",
+      "description": "[Requires Login] Post a new text activity or update an existing one"
+    },
+    {
+      "name": "get_user_anime_list",
+      "description": "Get a user's anime list"
+    },
+    {
+      "name": "get_user_manga_list",
+      "description": "Get a user's manga list"
+    },
+    {
+      "name": "add_list_entry",
+      "description": "[Requires Login] Add an entry to the authorized user's list"
+    },
+    {
+      "name": "remove_list_entry",
+      "description": "[Requires Login] Remove an entry from the authorized user's list"
+    },
+    {
+      "name": "update_list_entry",
+      "description": "[Requires Login] Update an entry on the authorized user's list"
+    },
+    {
+      "name": "get_anime",
+      "description": "Get detailed information about an anime by its AniList ID"
+    },
+    {
+      "name": "get_manga",
+      "description": "Get detailed information about a manga by its AniList ID"
+    },
+    {
+      "name": "favourite_anime",
+      "description": "[Requires Login] Favourite or unfavourite an anime by its ID"
+    },
+    {
+      "name": "favourite_manga",
+      "description": "[Requires Login] Favourite or unfavourite a manga by its ID"
+    },
+    {
+      "name": "get_character",
+      "description": "Get information about a character by their AniList ID"
+    },
+    {
+      "name": "get_staff",
+      "description": "Get information about staff member by their AniList ID"
+    },
+    {
+      "name": "favourite_character",
+      "description": "[Requires Login] Favourite or unfavourite a character by its ID"
+    },
+    {
+      "name": "favourite_staff",
+      "description": "[Requires Login] Favourite or unfavourite a staff member by their ID"
+    },
+    {
+      "name": "get_todays_birthday_characters",
+      "description": "Get all characters whose birthday is today"
+    },
+    {
+      "name": "get_todays_birthday_staff",
+      "description": "Get all staff members whose birthday is today"
+    },
+    {
+      "name": "get_recommendation",
+      "description": "Get an AniList recommendation by its ID"
+    },
+    {
+      "name": "get_recommendations_for_media",
+      "description": "Get AniList recommendations for a specific media"
+    },
+    {
+      "name": "search_activity",
+      "description": "Search for activities on AniList"
+    },
+    {
+      "name": "search_anime",
+      "description": "Search for anime with query term and filters"
+    },
+    {
+      "name": "search_manga",
+      "description": "Search for manga with query term and filters"
+    },
+    {
+      "name": "search_character",
+      "description": "Search for characters based on a query term"
+    },
+    {
+      "name": "search_staff",
+      "description": "Search for staff members based on a query term"
+    },
+    {
+      "name": "search_studio",
+      "description": "Search for studios based on a query term"
+    },
+    {
+      "name": "search_user",
+      "description": "Search for users on AniList"
+    },
+    {
+      "name": "get_thread",
+      "description": "Get a specific thread by its AniList ID"
+    },
+    {
+      "name": "get_thread_comments",
+      "description": "Get comments for a specific thread"
+    },
+    {
+      "name": "delete_thread",
+      "description": "[Requires Login] Delete a thread by its ID"
+    },
+    {
+      "name": "get_user_profile",
+      "description": "Get a user's AniList profile"
+    },
+    {
+      "name": "get_user_stats",
+      "description": "Get a user's AniList statistics"
+    },
+    {
+      "name": "get_full_user_info",
+      "description": "Get a user's complete profile and stats information"
+    },
+    {
+      "name": "get_user_recent_activity",
+      "description": "Get recent activity from a user"
+    },
+    {
+      "name": "get_authorized_user",
+      "description": "[Requires Login] Get profile information of the currently authorized user"
+    },
+    {
+      "name": "follow_user",
+      "description": "[Requires Login] Follow or unfollow a user by their ID"
+    },
+    {
+      "name": "update_user",
+      "description": "[Requires Login] Update user settings"
+    }
+  ],
+  "compatibility": {
+    "platforms": ["darwin", "win32", "linux"],
+    "runtimes": {
+      "node": ">=18.0.0"
+    }
+  },
+  "user_config": {
+    "anilist_token": {
+      "type": "string",
+      "title": "AniList Token",
+      "description": "AniList API token for authenticated requests",
+      "required": false,
+      "sensitive": true
+    }
+  },
+  "keywords": [
+    "ai",
+    "mcp",
+    "model-context-protocol",
+    "anilist",
+    "api",
+    "llm",
+    "anime",
+    "manga"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yuna0x0/anilist-mcp.git"
+  }
+}
