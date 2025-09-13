@@ -25,6 +25,18 @@ RUN pnpm run build
 
 FROM node:22-alpine AS release
 
+LABEL org.opencontainers.image.title="AniList MCP"
+LABEL org.opencontainers.image.description="AniList MCP server for accessing AniList API data"
+LABEL org.opencontainers.image.version="1.3.2"
+
+LABEL org.opencontainers.image.vendor="yuna0x0"
+LABEL org.opencontainers.image.authors="yuna0x0 <yuna@yuna0x0.com>"
+LABEL org.opencontainers.image.url="https://github.com/yuna0x0/anilist-mcp"
+LABEL org.opencontainers.image.source="https://github.com/yuna0x0/anilist-mcp"
+LABEL org.opencontainers.image.licenses="MIT"
+
+LABEL io.modelcontextprotocol.server.name="io.github.yuna0x0/anilist-mcp"
+
 RUN addgroup -g 1001 -S anilist-mcp && \
     adduser -S anilist-mcp -u 1001 -G anilist-mcp
 

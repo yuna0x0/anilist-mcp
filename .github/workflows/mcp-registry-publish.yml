@@ -13,15 +13,14 @@ jobs:
       id-token: write # Required for OIDC
       contents: read
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - name: Setup MCP Publisher
+      - name: Install MCP Publisher
         run: |
-          curl -LO https://github.com/yuna0x0/mcp-registry/releases/latest/download/mcp-publisher-linux-amd64
-          chmod +x mcp-publisher-linux-amd64
+          curl -L "https://github.com/modelcontextprotocol/registry/releases/download/v1.0.0/mcp-publisher_1.0.0_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m | sed 's/x86_64/amd64/;s/aarch64/arm64/').tar.gz" | tar xz mcp-publisher
 
-      - name: Login to Registry
-        run: ./mcp-publisher-linux-amd64 login github-oidc
+      - name: Login to MCP Registry
+        run: ./mcp-publisher login github-oidc
 
-      - name: Publish to Registry
-        run: ./mcp-publisher-linux-amd64 publish
+      - name: Publish to MCP Registry
+        run: ./mcp-publisher publish
