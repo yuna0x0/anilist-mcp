@@ -27,7 +27,7 @@ FROM node:22-alpine AS release
 
 LABEL org.opencontainers.image.title="AniList MCP"
 LABEL org.opencontainers.image.description="AniList MCP server for accessing AniList API data"
-LABEL org.opencontainers.image.version="1.3.2"
+LABEL org.opencontainers.image.version="1.3.3"
 
 LABEL org.opencontainers.image.vendor="yuna0x0"
 LABEL org.opencontainers.image.authors="yuna0x0 <yuna@yuna0x0.com>"

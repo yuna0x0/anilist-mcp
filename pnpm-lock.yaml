@@ -9,7 +9,7 @@ importers:
   .:
     dependencies:
       '@modelcontextprotocol/sdk':
-        specifier: ^1.17.5
+        specifier: ^1.18.0
         version: 1.18.0
       '@yuna0x0/anilist-node':
         specifier: ^1.15.0
@@ -31,7 +31,7 @@ importers:
         specifier: ^1.1.0
         version: 1.1.0
       '@modelcontextprotocol/inspector':
-        specifier: ^0.16.2
+        specifier: ^0.16.7
         version: 0.16.7(@types/node@24.3.3)(typescript@5.9.2)
       '@types/cors':
         specifier: ^2.8.19

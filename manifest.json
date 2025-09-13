@@ -2,7 +2,7 @@
   "manifest_version": "0.1",
   "name": "anilist-mcp",
   "display_name": "AniList MCP",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "AniList MCP server for accessing AniList API data",
   "author": {
     "name": "yuna0x0",
