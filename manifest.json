@@ -225,6 +225,7 @@
     "manga"
   ],
   "license": "MIT",
+  "privacy_policies": ["https://anilist.co/terms"],
   "repository": {
     "type": "git",
     "url": "https://github.com/yuna0x0/anilist-mcp.git"
