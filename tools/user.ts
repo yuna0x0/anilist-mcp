@@ -17,6 +17,11 @@ export function registerUserTools(
     {
       user: z.union([z.number(), z.string()]).describe("Username or user ID"),
     },
+    {
+      title: "Get Full User Info",
+      readOnlyHint: true,
+      openWorldHint: true,
+    },
     async ({ user }) => {
       try {
         const userInfo = await anilist.user.all(user);
@@ -45,6 +50,13 @@ export function registerUserTools(
       userID: z
         .number()
         .describe("The user ID of the account to follow/unfollow"),
+    },
+    {
+      title: "Follow/Unfollow User",
+      readOnlyHint: false,
+      destructiveHint: true,
+      idempotentHint: false,
+      openWorldHint: true,
     },
     async ({ userID }) => {
       try {
@@ -78,6 +90,11 @@ export function registerUserTools(
     "get_authorized_user",
     "[Requires Login] Get profile information of the currently authorized user",
     {},
+    {
+      title: "Get Authorized User",
+      readOnlyHint: true,
+      openWorldHint: true,
+    },
     async () => {
       try {
         const auth = requireAuth(config.anilistToken);
@@ -114,6 +131,11 @@ export function registerUserTools(
           "The user's AniList ID (Number ID only, DO NOT use username, any kind of string or other types except for numbers.)",
         ),
     },
+    {
+      title: "Get User Recent Activity",
+      readOnlyHint: true,
+      openWorldHint: true,
+    },
     async ({ user }) => {
       try {
         const activities = await anilist.user.getRecentActivity(user);
@@ -140,6 +162,11 @@ export function registerUserTools(
     "Get a user's AniList profile",
     {
       user: z.union([z.number(), z.string()]).describe("Username or user ID"),
+    },
+    {
+      title: "Get User Profile",
+      readOnlyHint: true,
+      openWorldHint: true,
     },
     async ({ user }) => {
       try {
@@ -168,6 +195,11 @@ export function registerUserTools(
     {
       user: z.union([z.number(), z.string()]).describe("Username or user ID"),
     },
+    {
+      title: "Get User Stats",
+      readOnlyHint: true,
+      openWorldHint: true,
+    },
     async ({ user }) => {
       try {
         const stats = await anilist.user.stats(user);
@@ -194,6 +226,13 @@ export function registerUserTools(
     "[Requires Login] Update user settings",
     {
       options: UserOptionsInputSchema.describe("User options to update"),
+    },
+    {
+      title: "Update User Settings",
+      readOnlyHint: false,
+      destructiveHint: true,
+      idempotentHint: true,
+      openWorldHint: true,
     },
     async ({ options }) => {
       try {

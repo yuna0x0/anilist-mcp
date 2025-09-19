@@ -16,6 +16,11 @@ export function registerMediaTools(
     {
       id: z.number().describe("The AniList ID of the anime"),
     },
+    {
+      title: "Get Anime Details",
+      readOnlyHint: true,
+      openWorldHint: true,
+    },
     async ({ id }) => {
       try {
         const anime = await anilist.media.anime(id);
@@ -44,6 +49,13 @@ export function registerMediaTools(
       id: z
         .number()
         .describe("The AniList ID of the anime to favourite/unfavourite"),
+    },
+    {
+      title: "Favourite/Unfavourite Anime",
+      readOnlyHint: false,
+      destructiveHint: true,
+      idempotentHint: false,
+      openWorldHint: true,
     },
     async ({ id }) => {
       try {
@@ -81,6 +93,13 @@ export function registerMediaTools(
         .number()
         .describe("The AniList ID of the manga to favourite/unfavourite"),
     },
+    {
+      title: "Favourite/Unfavourite Manga",
+      readOnlyHint: false,
+      destructiveHint: true,
+      idempotentHint: false,
+      openWorldHint: true,
+    },
     async ({ id }) => {
       try {
         const auth = requireAuth(config.anilistToken);
@@ -114,6 +133,11 @@ export function registerMediaTools(
     "Get detailed information about a manga by its AniList ID",
     {
       id: z.number().describe("The AniList ID of the manga"),
+    },
+    {
+      title: "Get Manga Details",
+      readOnlyHint: true,
+      openWorldHint: true,
     },
     async ({ id }) => {
       try {

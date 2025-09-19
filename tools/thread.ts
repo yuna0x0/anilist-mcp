@@ -16,6 +16,13 @@ export function registerThreadTools(
     {
       id: z.number().describe("The AniList thread ID to delete"),
     },
+    {
+      title: "Delete AniList Thread",
+      readOnlyHint: false,
+      destructiveHint: true,
+      idempotentHint: true,
+      openWorldHint: true,
+    },
     async ({ id }) => {
       try {
         const auth = requireAuth(config.anilistToken);
@@ -50,6 +57,11 @@ export function registerThreadTools(
     {
       id: z.number().describe("The AniList ID of the thread"),
     },
+    {
+      title: "Get AniList Thread",
+      readOnlyHint: true,
+      openWorldHint: true,
+    },
     async ({ id }) => {
       try {
         const thread = await anilist.thread.get(id);
@@ -82,6 +94,11 @@ export function registerThreadTools(
         .optional()
         .default(25)
         .describe("How many comments per page"),
+    },
+    {
+      title: "Get AniList Thread Comments",
+      readOnlyHint: true,
+      openWorldHint: true,
     },
     async ({ id, page = 1, perPage = 25 }) => {
       try {

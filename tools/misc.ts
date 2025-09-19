@@ -18,6 +18,13 @@ export function registerMiscTools(
         .number()
         .describe("The AniList ID of the studio to favourite/unfavourite"),
     },
+    {
+      title: "Favourite/Unfavourite Studio",
+      readOnlyHint: false,
+      destructiveHint: true,
+      idempotentHint: false,
+      openWorldHint: true,
+    },
     async ({ id }) => {
       try {
         const auth = requireAuth(config.anilistToken);
@@ -50,6 +57,11 @@ export function registerMiscTools(
     "get_genres",
     "Get all available genres on AniList",
     {},
+    {
+      title: "Get Genres",
+      readOnlyHint: true,
+      openWorldHint: true,
+    },
     async () => {
       try {
         const genres = await anilist.genres();
@@ -75,6 +87,11 @@ export function registerMiscTools(
     "get_media_tags",
     "Get all available media tags on AniList",
     {},
+    {
+      title: "Get Media Tags",
+      readOnlyHint: true,
+      openWorldHint: true,
+    },
     async () => {
       try {
         const tags = await anilist.mediaTags();
@@ -100,6 +117,11 @@ export function registerMiscTools(
     "get_site_statistics",
     "Get AniList site statistics over the last seven days",
     {},
+    {
+      title: "Get Site Statistics",
+      readOnlyHint: true,
+      openWorldHint: true,
+    },
     async () => {
       try {
         const statistics = await anilist.siteStatistics();
@@ -128,6 +150,11 @@ export function registerMiscTools(
       studio: z
         .union([z.string(), z.number()])
         .describe("The studio ID or name"),
+    },
+    {
+      title: "Get Studio Information",
+      readOnlyHint: true,
+      openWorldHint: true,
     },
     async ({ studio }) => {
       try {

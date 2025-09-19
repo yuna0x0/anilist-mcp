@@ -33,6 +33,11 @@ export function registerSearchTools(server: McpServer, anilist: AniList) {
         .default(5)
         .describe("Results per page (max 25)"),
     },
+    {
+      title: "AniList Activity Search",
+      readOnlyHint: true,
+      openWorldHint: true,
+    },
     async ({ activityID, filter, page, perPage }) => {
       try {
         const results = await anilist.searchEntry.activity(
@@ -93,6 +98,11 @@ Otherwise, request is likely to fail or return no results.`,
         .default(5)
         .describe("Results per page (max 25)"),
     },
+    {
+      title: "AniList Anime Search",
+      readOnlyHint: true,
+      openWorldHint: true,
+    },
     async ({ term, filter, page, amount }) => {
       try {
         const results = await anilist.searchEntry.anime(
@@ -134,6 +144,11 @@ Otherwise, request is likely to fail or return no results.`,
         .optional()
         .default(5)
         .describe("Results per page (max 25)"),
+    },
+    {
+      title: "AniList Character Search",
+      readOnlyHint: true,
+      openWorldHint: true,
     },
     async ({ term, page, amount }) => {
       try {
@@ -190,6 +205,11 @@ Otherwise, request is likely to fail or return no results.`,
         .default(5)
         .describe("Results per page (max 25)"),
     },
+    {
+      title: "AniList Manga Search",
+      readOnlyHint: true,
+      openWorldHint: true,
+    },
     async ({ term, filter, page, amount }) => {
       try {
         const results = await anilist.searchEntry.manga(
@@ -232,6 +252,11 @@ Otherwise, request is likely to fail or return no results.`,
         .default(5)
         .describe("Results per page (max 25)"),
     },
+    {
+      title: "AniList Staff Search",
+      readOnlyHint: true,
+      openWorldHint: true,
+    },
     async ({ term, page, amount }) => {
       try {
         const results = await anilist.searchEntry.staff(term, page, amount);
@@ -269,6 +294,11 @@ Otherwise, request is likely to fail or return no results.`,
         .default(5)
         .describe("Results per page (max 25)"),
     },
+    {
+      title: "AniList Studio Search",
+      readOnlyHint: true,
+      openWorldHint: true,
+    },
     async ({ term, page, amount }) => {
       try {
         const results = await anilist.searchEntry.studio(term, page, amount);
@@ -305,6 +335,11 @@ Otherwise, request is likely to fail or return no results.`,
         .optional()
         .default(5)
         .describe("Results per page (max 25)"),
+    },
+    {
+      title: "AniList User Search",
+      readOnlyHint: true,
+      openWorldHint: true,
     },
     async ({ term, page, amount }) => {
       try {

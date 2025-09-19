@@ -14,6 +14,11 @@ export function registerRecommendationTools(
     {
       recommendID: z.number().describe("The AniList recommendation ID"),
     },
+    {
+      title: "Get AniList Recommendation by ID",
+      readOnlyHint: true,
+      openWorldHint: true,
+    },
     async ({ recommendID }) => {
       try {
         const recommendation = await anilist.recommendation.get(recommendID);
@@ -50,6 +55,11 @@ export function registerRecommendationTools(
         .optional()
         .default(25)
         .describe("Limit the page amount (max 25 per AniList limits)"),
+    },
+    {
+      title: "Get AniList Recommendations for Media",
+      readOnlyHint: true,
+      openWorldHint: true,
     },
     async ({ mediaID, page, perPage }) => {
       try {

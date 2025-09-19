@@ -18,6 +18,13 @@ export function registerListsTools(
       id: z.number().describe("The AniList ID of the media entry to add"),
       options: UpdateEntryOptionsSchema,
     },
+    {
+      title: "Add List Entry",
+      readOnlyHint: false,
+      destructiveHint: true,
+      idempotentHint: true,
+      openWorldHint: true,
+    },
     async ({ id, options }) => {
       try {
         const auth = requireAuth(config.anilistToken);
@@ -50,6 +57,11 @@ export function registerListsTools(
     {
       user: z.union([z.number(), z.string()]).describe("Username or user ID"),
     },
+    {
+      title: "Get User Anime List",
+      readOnlyHint: true,
+      openWorldHint: true,
+    },
     async ({ user }) => {
       try {
         const list = await anilist.lists.anime(user);
@@ -77,6 +89,11 @@ export function registerListsTools(
     {
       user: z.union([z.number(), z.string()]).describe("Username or user ID"),
     },
+    {
+      title: "Get User Manga List",
+      readOnlyHint: true,
+      openWorldHint: true,
+    },
     async ({ user }) => {
       try {
         const list = await anilist.lists.manga(user);
@@ -103,6 +120,13 @@ export function registerListsTools(
     "[Requires Login] Remove an entry from the authorized user's list",
     {
       id: z.number().describe("The AniList list ID of the entry to remove"),
+    },
+    {
+      title: "Remove List Entry",
+      readOnlyHint: false,
+      destructiveHint: true,
+      idempotentHint: true,
+      openWorldHint: true,
     },
     async ({ id }) => {
       try {
@@ -138,6 +162,13 @@ export function registerListsTools(
     {
       id: z.number().describe("The AniList list ID of the entry to edit"),
       options: UpdateEntryOptionsSchema,
+    },
+    {
+      title: "Update List Entry",
+      readOnlyHint: false,
+      destructiveHint: true,
+      idempotentHint: true,
+      openWorldHint: true,
     },
     async ({ id, options }) => {
       try {

@@ -18,6 +18,11 @@ export function registerPeopleTools(
         .union([z.number(), z.string()])
         .describe("The AniList ID of the character"),
     },
+    {
+      title: "Get Character Info",
+      readOnlyHint: true,
+      openWorldHint: true,
+    },
     async ({ id }) => {
       try {
         const character = await anilist.people.character(id);
@@ -46,6 +51,13 @@ export function registerPeopleTools(
       id: z
         .number()
         .describe("The AniList ID of the character to favourite/unfavourite"),
+    },
+    {
+      title: "Favourite/Unfavourite Character",
+      readOnlyHint: false,
+      destructiveHint: true,
+      idempotentHint: false,
+      openWorldHint: true,
     },
     async ({ id }) => {
       try {
@@ -85,6 +97,13 @@ export function registerPeopleTools(
           "The AniList ID of the staff member to favourite/unfavourite",
         ),
     },
+    {
+      title: "Favourite/Unfavourite Staff Member",
+      readOnlyHint: false,
+      destructiveHint: true,
+      idempotentHint: false,
+      openWorldHint: true,
+    },
     async ({ id }) => {
       try {
         const auth = requireAuth(config.anilistToken);
@@ -123,6 +142,11 @@ export function registerPeopleTools(
         .default(1)
         .describe("What page in the search to target"),
     },
+    {
+      title: "Get Today's Birthday Characters",
+      readOnlyHint: true,
+      openWorldHint: true,
+    },
     async ({ page }) => {
       try {
         const characters = await anilist.people.getBirthdayCharacters(page);
@@ -154,6 +178,11 @@ export function registerPeopleTools(
         .default(1)
         .describe("What page in the search to target"),
     },
+    {
+      title: "Get Today's Birthday Staff Members",
+      readOnlyHint: true,
+      openWorldHint: true,
+    },
     async ({ page }) => {
       try {
         const staffMembers = await anilist.people.getBirthdayStaff(page);
@@ -182,6 +211,11 @@ export function registerPeopleTools(
       id: z
         .union([z.number(), z.string()])
         .describe("The AniList ID or name of the staff member"),
+    },
+    {
+      title: "Get Staff Member Info",
+      readOnlyHint: true,
+      openWorldHint: true,
     },
     async ({ id }) => {
       try {

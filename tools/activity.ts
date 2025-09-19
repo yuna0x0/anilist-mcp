@@ -16,6 +16,13 @@ export function registerActivityTools(
     {
       id: z.number().describe("The AniList activity ID to delete"),
     },
+    {
+      title: "Delete an AniList Activity",
+      readOnlyHint: false,
+      destructiveHint: true,
+      idempotentHint: true,
+      openWorldHint: true,
+    },
     async ({ id }) => {
       try {
         const auth = requireAuth(config.anilistToken);
@@ -49,6 +56,11 @@ export function registerActivityTools(
     "Get a specific AniList activity by its ID",
     {
       activityID: z.number().describe("The AniList activity ID"),
+    },
+    {
+      title: "Get an AniList Activity",
+      readOnlyHint: true,
+      openWorldHint: true,
     },
     async ({ activityID }) => {
       try {
@@ -86,6 +98,11 @@ export function registerActivityTools(
         .optional()
         .default(25)
         .describe("How many entries to display on one page (max 25)"),
+    },
+    {
+      title: "Get a User's AniList Activities",
+      readOnlyHint: true,
+      openWorldHint: true,
     },
     async ({ user, page, perPage }) => {
       try {
@@ -130,6 +147,13 @@ export function registerActivityTools(
         .nullable()
         .describe("AniList Activity ID (null to create new, number to update)"),
     },
+    {
+      title: "Post or Update an AniList Message Activity",
+      readOnlyHint: false,
+      destructiveHint: true,
+      idempotentHint: false,
+      openWorldHint: true,
+    },
     async ({ text, recipientId, isPrivate, id }) => {
       try {
         const auth = requireAuth(config.anilistToken);
@@ -170,6 +194,13 @@ export function registerActivityTools(
         .number()
         .nullable()
         .describe("AniList Activity ID (null to create new, number to update)"),
+    },
+    {
+      title: "Post or Update an AniList Text Activity",
+      readOnlyHint: false,
+      destructiveHint: true,
+      idempotentHint: false,
+      openWorldHint: true,
     },
     async ({ text, id }) => {
       try {
