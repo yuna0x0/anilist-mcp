@@ -215,19 +215,19 @@ This is particularly useful for testing your setup before connecting it to MCP c
 
 ## Docker
 
-Pull from Docker Hub:
+Pull from GitHub Container Registry:
 ```bash
-docker pull yuna0x0/anilist-mcp
+docker pull ghcr.io/yuna0x0/anilist-mcp
 ```
 
 Docker build (Local Development):
 ```bash
-docker build -t yuna0x0/anilist-mcp .
+docker build -t ghcr.io/yuna0x0/anilist-mcp .
 ```
 
 Docker multi-platform build (Local Development):
 ```bash
-docker buildx build --platform linux/amd64,linux/arm64 -t yuna0x0/anilist-mcp .
+docker buildx build --platform linux/amd64,linux/arm64 -t ghcr.io/yuna0x0/anilist-mcp .
 ```
 
 ## MCP Bundles (MCPB)
