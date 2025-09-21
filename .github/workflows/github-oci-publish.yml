@@ -14,9 +14,9 @@ env:
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:
-  # This pushes the image to GitHub Packages.
-  push:
+  publish:
     runs-on: ubuntu-latest
+    environment: github-oci-release
     permissions:
       packages: write
       contents: read
