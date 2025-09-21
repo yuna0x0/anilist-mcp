@@ -1,5 +1,5 @@
 {
-  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-07-09/server.schema.json",
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-16/server.schema.json",
   "name": "io.github.yuna0x0/anilist-mcp",
   "description": "AniList MCP server for accessing AniList API data",
   "status": "active",
@@ -7,58 +7,58 @@
     "url": "https://github.com/yuna0x0/anilist-mcp",
     "source": "github"
   },
-  "version": "1.3.4",
+  "version": "1.3.5",
   "packages": [
     {
-      "registry_type": "npm",
-      "registry_base_url": "https://registry.npmjs.org",
+      "registryType": "npm",
+      "registryBaseUrl": "https://registry.npmjs.org",
       "identifier": "anilist-mcp",
-      "version": "1.3.4",
+      "version": "1.3.5",
       "transport": {
         "type": "stdio"
       },
-      "environment_variables": [
+      "environmentVariables": [
         {
           "description": "AniList API token for authenticated requests",
-          "is_required": false,
+          "isRequired": false,
           "format": "string",
-          "is_secret": true,
+          "isSecret": true,
           "name": "ANILIST_TOKEN"
         }
       ]
     },
     {
-      "registry_type": "oci",
-      "registry_base_url": "https://ghcr.io",
+      "registryType": "oci",
+      "registryBaseUrl": "https://ghcr.io",
       "identifier": "yuna0x0/anilist-mcp",
-      "version": "1.3.4",
+      "version": "1.3.5",
       "transport": {
         "type": "stdio"
       },
-      "environment_variables": [
+      "environmentVariables": [
         {
           "description": "AniList API token for authenticated requests",
-          "is_required": false,
+          "isRequired": false,
           "format": "string",
-          "is_secret": true,
+          "isSecret": true,
           "name": "ANILIST_TOKEN"
         }
       ]
     },
     {
-      "registry_type": "mcpb",
-      "identifier": "https://github.com/yuna0x0/anilist-mcp/releases/download/v1.3.4/anilist-mcp-1.3.4.mcpb",
-      "file_sha256": "ffbf29b85dce3a9aee4c186afab98c0521b08153b2942fe5b887811c6402d342",
-      "version": "1.3.4",
+      "registryType": "mcpb",
+      "identifier": "https://github.com/yuna0x0/anilist-mcp/releases/download/v1.3.5/anilist-mcp-1.3.5.mcpb",
+      "fileSha256": "40a76d2027c01ac43c592bf14a08beed7bdc4faca1d814086d11dbd664efd24a",
+      "version": "1.3.5",
       "transport": {
         "type": "stdio"
       },
-      "environment_variables": [
+      "environmentVariables": [
         {
           "description": "AniList API token for authenticated requests",
-          "is_required": false,
+          "isRequired": false,
           "format": "string",
-          "is_secret": true,
+          "isSecret": true,
           "name": "ANILIST_TOKEN"
         }
       ]
