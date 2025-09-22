@@ -12,7 +12,7 @@ import { registerAllTools } from "./tools/index.js";
 import { ConfigSchema } from "./utils/schemas.js";
 import { ANILIST_TOKEN_HEADER } from "./utils/constants.js";
 
-dotenv.config();
+dotenv.config({ quiet: true });
 
 const app = express();
 const PORT = process.env.PORT || 8081;
@@ -51,7 +51,7 @@ function parseConfig(req: Request) {
 function createServer({ config }: { config: z.infer<typeof ConfigSchema> }) {
   const server = new McpServer({
     name: "anilist-mcp",
-    version: "1.3.5",
+    version: "1.3.6",
   });
 
   // Initialize AniList client with token from config or environment
