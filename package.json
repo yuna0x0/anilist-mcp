@@ -1,6 +1,6 @@
 {
   "name": "anilist-mcp",
-  "version": "1.3.6",
+  "version": "1.3.7",
   "mcpName": "io.github.yuna0x0/anilist-mcp",
   "description": "AniList MCP server for accessing AniList API data",
   "type": "module",
