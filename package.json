@@ -1,6 +1,6 @@
 {
   "name": "anilist-mcp",
-  "version": "1.3.7",
+  "version": "1.3.8",
   "mcpName": "io.github.yuna0x0/anilist-mcp",
   "description": "AniList MCP server for accessing AniList API data",
   "type": "module",
@@ -18,14 +18,14 @@
     "dist"
   ],
   "scripts": {
-    "clean": "rimraf 'dist/'",
-    "build": "pnpm run clean && tsc && shx chmod +x dist/*.js",
+    "clean": "shx rm -rf dist",
+    "build": "pnpm run clean && tsc && shx chmod +x \"dist/*.js\"",
     "prepare": "pnpm run build",
     "start": "pnpm run start:http",
     "start:http": "pnpm run build && cross-env TRANSPORT=http node dist/index.js",
     "start:stdio": "pnpm run build && node dist/index.js",
     "dev": "pnpm run dev:http",
-    "dev:http": "TRANSPORT=http tsx index.ts",
+    "dev:http": "cross-env TRANSPORT=http tsx index.ts",
     "dev:stdio": "tsx index.ts",
     "inspector": "pnpm run build && mcp-inspector node dist/index.js",
     "watch": "tsc --watch",
@@ -42,26 +42,25 @@
     "manga"
   ],
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.18.2",
+    "@modelcontextprotocol/sdk": "^1.20.1",
     "@yuna0x0/anilist-node": "^1.15.0",
     "cors": "^2.8.5",
-    "dotenv": "^17.2.2",
+    "dotenv": "^17.2.3",
     "express": "^5.1.0",
     "zod": "^3.25.76"
   },
   "devDependencies": {
     "@anthropic-ai/mcpb": "^1.1.1",
-    "@modelcontextprotocol/inspector": "^0.16.8",
+    "@modelcontextprotocol/inspector": "^0.17.1",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.3",
     "cross-env": "^10.1.0",
-    "rimraf": "^6.0.1",
     "shx": "^0.4.0",
     "tsx": "^4.20.6",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.3"
   },
   "engines": {
     "node": ">=18.0.0"
   },
-  "packageManager": "pnpm@10.17.1+sha512.17c560fca4867ae9473a3899ad84a88334914f379be46d455cbf92e5cf4b39d34985d452d2583baf19967fa76cb5c17bc9e245529d0b98745721aa7200ecaf7a"
+  "packageManager": "pnpm@10.18.3+sha512.bbd16e6d7286fd7e01f6b3c0b3c932cda2965c06a908328f74663f10a9aea51f1129eea615134bf992831b009eabe167ecb7008b597f40ff9bc75946aadfb08d"
 }
