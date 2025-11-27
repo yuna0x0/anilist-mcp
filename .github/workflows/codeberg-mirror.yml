@@ -1,0 +1,14 @@
+name: Mirror to Codeberg
+on: [push, workflow_dispatch]
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - uses: yuna0x0/mirror-action@master
+        with:
+          REMOTE: "ssh://git@codeberg.org/${{ github.repository }}.git"
+          GIT_SSH_PRIVATE_KEY: ${{ secrets.CODEBERG_SSH_PRIVATE_KEY }}
+          GIT_SSH_KNOWN_HOSTS: ${{ secrets.CODEBERG_SSH_KNOWN_HOSTS }}
