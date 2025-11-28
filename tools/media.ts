@@ -3,7 +3,7 @@ import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import type AniList from "@yuna0x0/anilist-node";
 import type { ConfigSchema } from "../utils/schemas.js";
 import { requireAuth } from "../utils/auth.js";
-import { filterMedia } from "../utils/mediaFilter.js";
+import { filterMedia, type FilteredMediaEntry } from "../utils/mediaFilter.js";
 
 export function registerMediaTools(
   server: McpServer,
@@ -42,7 +42,9 @@ export function registerMediaTools(
         const filteredResults = fullData ? results : filterMedia(results);
 
         // Return single object if single ID was provided, array if multiple
-        const res = Array.isArray(ids) ? filteredResults : filteredResults[0];
+        const res = Array.isArray(ids)
+          ? filteredResults
+          : (filteredResults as FilteredMediaEntry[])[0];
 
         return {
           content: [
@@ -179,7 +181,9 @@ export function registerMediaTools(
         const filteredResults = fullData ? results : filterMedia(results);
 
         // Return single object if single ID was provided, array if multiple
-        const res = Array.isArray(ids) ? filteredResults : filteredResults[0];
+        const res = Array.isArray(ids)
+          ? filteredResults
+          : (filteredResults as FilteredMediaEntry[])[0];
 
         return {
           content: [
