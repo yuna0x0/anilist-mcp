@@ -43,7 +43,7 @@
   ],
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.23.0",
-    "@yuna0x0/anilist-node": "^1.15.0",
+    "@yuna0x0/anilist-node": "^1.15.1",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
