@@ -8,7 +8,7 @@
     "source": "github",
     "id": "952023806"
   },
-  "version": "1.3.10",
+  "version": "1.4.0",
   "icons": [
     {
       "src": "https://anilist.co/img/icons/icon.svg",
@@ -21,7 +21,7 @@
       "registryType": "npm",
       "registryBaseUrl": "https://registry.npmjs.org",
       "identifier": "anilist-mcp",
-      "version": "1.3.10",
+      "version": "1.4.0",
       "transport": {
         "type": "stdio"
       },
@@ -37,7 +37,7 @@
     },
     {
       "registryType": "oci",
-      "identifier": "ghcr.io/yuna0x0/anilist-mcp:1.3.10",
+      "identifier": "ghcr.io/yuna0x0/anilist-mcp:1.4.0",
       "transport": {
         "type": "stdio"
       },
@@ -53,8 +53,8 @@
     },
     {
       "registryType": "mcpb",
-      "identifier": "https://github.com/yuna0x0/anilist-mcp/releases/download/v1.3.10/anilist-mcp-1.3.10.mcpb",
-      "fileSha256": "58e694078422a2a2a7545c5301c18c2af1019c56ef082a5019471389f05f2bd4",
+      "identifier": "https://github.com/yuna0x0/anilist-mcp/releases/download/v1.4.0/anilist-mcp-1.4.0.mcpb",
+      "fileSha256": "f77013615f02d9001b895ffb915b0a642a1a914cbb48d24f6f09e91e3f9c9fd1",
       "transport": {
         "type": "stdio"
       },
