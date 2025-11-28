@@ -3,6 +3,7 @@ import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import type AniList from "@yuna0x0/anilist-node";
 import type { ConfigSchema } from "../utils/schemas.js";
 import { requireAuth } from "../utils/auth.js";
+import { filterMedia } from "../utils/mediaFilter.js";
 
 export function registerMediaTools(
   server: McpServer,
@@ -12,23 +13,42 @@ export function registerMediaTools(
   // anilist.media.anime()
   server.tool(
     "get_anime",
-    "Get detailed information about an anime by its AniList ID",
+    "Get detailed information about anime by AniList ID(s)",
     {
-      id: z.number().describe("The AniList ID of the anime"),
+      ids: z
+        .union([z.number(), z.array(z.number())])
+        .describe("The AniList ID or array of IDs of the anime"),
+      fullData: z
+        .boolean()
+        .optional()
+        .default(false)
+        .describe(
+          "Set to true to get full unfiltered data (may be very large). Default is false to return only essential fields.",
+        ),
     },
     {
       title: "Get Anime Details",
       readOnlyHint: true,
       openWorldHint: true,
     },
-    async ({ id }) => {
+    async ({ ids, fullData }) => {
       try {
-        const anime = await anilist.media.anime(id);
+        const idArray = Array.isArray(ids) ? ids : [ids];
+        const results = await Promise.all(
+          idArray.map((id) => anilist.media.anime(id)),
+        );
+
+        // Filter results unless fullData is explicitly requested
+        const filteredResults = fullData ? results : filterMedia(results);
+
+        // Return single object if single ID was provided, array if multiple
+        const res = Array.isArray(ids) ? filteredResults : filteredResults[0];
+
         return {
           content: [
             {
               type: "text",
-              text: JSON.stringify(anime, null, 2),
+              text: JSON.stringify(res, null, 2),
             },
           ],
         };
@@ -130,23 +150,42 @@ export function registerMediaTools(
   // anilist.media.manga()
   server.tool(
     "get_manga",
-    "Get detailed information about a manga by its AniList ID",
+    "Get detailed information about manga by AniList ID(s)",
     {
-      id: z.number().describe("The AniList ID of the manga"),
+      ids: z
+        .union([z.number(), z.array(z.number())])
+        .describe("The AniList ID or array of IDs of the manga"),
+      fullData: z
+        .boolean()
+        .optional()
+        .default(false)
+        .describe(
+          "Set to true to get full unfiltered data (may be very large). Default is false to return only essential fields.",
+        ),
     },
     {
       title: "Get Manga Details",
       readOnlyHint: true,
       openWorldHint: true,
     },
-    async ({ id }) => {
+    async ({ ids, fullData }) => {
       try {
-        const manga = await anilist.media.manga(id);
+        const idArray = Array.isArray(ids) ? ids : [ids];
+        const results = await Promise.all(
+          idArray.map((id) => anilist.media.manga(id)),
+        );
+
+        // Filter results unless fullData is explicitly requested
+        const filteredResults = fullData ? results : filterMedia(results);
+
+        // Return single object if single ID was provided, array if multiple
+        const res = Array.isArray(ids) ? filteredResults : filteredResults[0];
+
         return {
           content: [
             {
               type: "text",
-              text: JSON.stringify(manga, null, 2),
+              text: JSON.stringify(res, null, 2),
             },
           ],
         };
