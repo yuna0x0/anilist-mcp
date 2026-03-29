@@ -2,6 +2,10 @@
 
 A Model Context Protocol (MCP) server that interfaces with the AniList API, allowing LLM clients to access and interact with anime, manga, character, staff, and user data from AniList.
 
+## Hosted deployment
+
+A hosted deployment is available on [Fronteir AI](https://fronteir.ai/mcp/yuna0x0-anilist-mcp).
+
 ## Features
 
 - Search for anime, manga, characters, staff, and studios
