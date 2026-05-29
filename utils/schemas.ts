@@ -205,27 +205,45 @@ export const UserOptionsInputSchema = z.object({
 
 export const UpdateEntryOptionsSchema = z
   .object({
-    id: z.number().describe("The ID of the list entry"),
-    mediaId: z.number().describe("The ID of the media to add"),
-    status: EntryStatusSchema.describe("The status of the media on the list"),
-    score: z.number().describe("The score given to the media"),
-    scoreRaw: z.number().describe("The raw score in 100 point format"),
-    progress: z.number().describe("The amount of episodes/chapters consumed"),
+    id: z.number().optional().describe("The ID of the list entry"),
+    mediaId: z.number().optional().describe("The ID of the media to add"),
+    status: EntryStatusSchema.optional().describe(
+      "The status of the media on the list",
+    ),
+    score: z.number().optional().describe("The score given to the media"),
+    scoreRaw: z
+      .number()
+      .optional()
+      .describe("The raw score in 100 point format"),
+    progress: z
+      .number()
+      .optional()
+      .describe("The amount of episodes/chapters consumed"),
     progressVolumes: z
       .number()
+      .optional()
       .describe("The amount of volumes read (manga only)"),
-    repeat: z.number().describe("Amount of times the media has been repeated"),
-    priority: z.number().describe("Priority level of the media"),
-    private: z.boolean().describe("Whether the entry should be private"),
-    notes: z.string().describe("Text notes about the media"),
+    repeat: z
+      .number()
+      .optional()
+      .describe("Amount of times the media has been repeated"),
+    priority: z.number().optional().describe("Priority level of the media"),
+    private: z
+      .boolean()
+      .optional()
+      .describe("Whether the entry should be private"),
+    notes: z.string().optional().describe("Text notes about the media"),
     hiddenFromStatusLists: z
       .boolean()
+      .optional()
       .describe("Whether the entry should be hidden from non-custom lists"),
     customLists: z
       .array(z.string())
+      .optional()
       .describe("Array of custom list names for the media"),
     advancedScores: z
       .array(z.number())
+      .optional()
       .describe("Advanced scores as an object"),
     startedAt: z
       .object({
@@ -233,6 +251,7 @@ export const UpdateEntryOptionsSchema = z
         month: z.number(),
         day: z.number(),
       })
+      .optional()
       .describe("When the user started the media"),
     completedAt: z
       .object({
@@ -240,6 +259,7 @@ export const UpdateEntryOptionsSchema = z
         month: z.number(),
         day: z.number(),
       })
+      .optional()
       .describe("When the user completed the media"),
   })
   .describe("Values to save with the entry");

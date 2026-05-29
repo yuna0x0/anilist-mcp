@@ -5,6 +5,86 @@ import type { ConfigSchema } from "../utils/schemas.js";
 import { requireAuth } from "../utils/auth.js";
 import { UpdateEntryOptionsSchema } from "../utils/schemas.js";
 
+async function saveMediaListEntry(
+  anilistToken: string,
+  variables: Record<string, unknown>,
+) {
+  const query = `
+mutation SaveMediaListEntry(
+  $id: Int
+  $mediaId: Int
+  $status: MediaListStatus
+  $score: Float
+  $scoreRaw: Int
+  $progress: Int
+  $progressVolumes: Int
+  $repeat: Int
+  $priority: Int
+  $private: Boolean
+  $notes: String
+  $hiddenFromStatusLists: Boolean
+  $customLists: [String]
+  $advancedScores: [Float]
+  $startedAt: FuzzyDateInput
+  $completedAt: FuzzyDateInput
+) {
+  SaveMediaListEntry(
+    id: $id
+    mediaId: $mediaId
+    status: $status
+    score: $score
+    scoreRaw: $scoreRaw
+    progress: $progress
+    progressVolumes: $progressVolumes
+    repeat: $repeat
+    priority: $priority
+    private: $private
+    notes: $notes
+    hiddenFromStatusLists: $hiddenFromStatusLists
+    customLists: $customLists
+    advancedScores: $advancedScores
+    startedAt: $startedAt
+    completedAt: $completedAt
+  ) {
+    id
+    mediaId
+    status
+    score
+    progress
+    progressVolumes
+    repeat
+    priority
+    private
+    hiddenFromStatusLists
+    customLists
+    startedAt { year month day }
+    completedAt { year month day }
+    notes
+    advancedScores
+  }
+}`;
+
+  const response = await fetch("https://graphql.anilist.co", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      Authorization: `Bearer ${anilistToken}`,
+    },
+    body: JSON.stringify({ query, variables }),
+  });
+
+  const body = await response.json();
+  if (!response.ok || body.errors) {
+    const message =
+      body.errors?.map((error: { message: string }) => error.message).join("; ")
+      || response.statusText;
+    throw new Error(message);
+  }
+
+  return body.data.SaveMediaListEntry;
+}
+
 export function registerListsTools(
   server: McpServer,
   anilist: AniList,
@@ -32,7 +112,10 @@ export function registerListsTools(
           return auth.errorResponse;
         }
 
-        const result = await anilist.lists.addEntry(id, options);
+        const result = await saveMediaListEntry(config.anilistToken!, {
+          ...options,
+          mediaId: id,
+        });
         return {
           content: [
             {
@@ -177,7 +260,10 @@ export function registerListsTools(
           return auth.errorResponse;
         }
 
-        const result = await anilist.lists.updateEntry(id, options);
+        const result = await saveMediaListEntry(config.anilistToken!, {
+          ...options,
+          id,
+        });
         return {
           content: [
             {
