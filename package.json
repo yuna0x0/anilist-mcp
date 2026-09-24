@@ -20,6 +20,7 @@
   "scripts": {
     "clean": "shx rm -rf dist",
     "build": "pnpm run clean && tsc && shx chmod +x \"dist/*.js\"",
+    "test": "pnpm run build && node --test tests/*.test.mjs",
     "prepare": "pnpm run build",
     "start": "pnpm run start:http",
     "start:http": "pnpm run build && cross-env TRANSPORT=http node dist/index.js",

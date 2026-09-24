@@ -42,6 +42,12 @@ export const MediaSourceSchema = z.enum([
   "NOVEL",
   "DOUJINSHI",
   "ANIME",
+  "WEB_NOVEL",
+  "LIVE_ACTION",
+  "GAME",
+  "COMIC",
+  "MULTIMEDIA_PROJECT",
+  "PICTURE_BOOK",
 ]);
 
 export const MediaSortSchema = z.enum([
@@ -149,12 +155,6 @@ export const EntryStatusSchema = z.enum([
 export const NotificationOptionsSchema = z.object({
   type: NotificationTypeSchema,
   enabled: z.boolean(),
-});
-
-export const FuzzyDateSchema = z.object({
-  year: z.number().nullable(),
-  month: z.number().nullable(),
-  day: z.number().nullable(),
 });
 
 export const MediaListOptionsSchema = z.object({
@@ -347,8 +347,12 @@ export const ActivityFilterTypesSchema = z.object({
 export const MediaFilterTypesSchema = z.object({
   id: z.number().optional().describe("The AniList ID"),
   idMal: z.number().optional().describe("The MyAnimeList ID"),
-  startDate: FuzzyDateSchema.optional().describe("The start date of the media"),
-  endDate: FuzzyDateSchema.optional().describe("The end date of the media"),
+  startDate: z.number().int().optional().describe(
+    "The start date of the media in YYYYMMDD format (use 00 for unknown month/day)",
+  ),
+  endDate: z.number().int().optional().describe(
+    "The end date of the media in YYYYMMDD format (use 00 for unknown month/day)",
+  ),
   season: MediaSeasonSchema.optional().describe("The season the media aired"),
   seasonYear: z.number().optional().describe("The year of the season"),
   type: MediaTypeSchema.optional().describe(
@@ -400,11 +404,12 @@ export const MediaFilterTypesSchema = z.object({
     .number()
     .optional()
     .describe("Filter by the media's popularity"),
-  source: MediaFormatSchema.optional().describe(
+  source: MediaSourceSchema.optional().describe(
     "Filter by the media's source type",
   ),
   countryOfOrigin: z
-    .number()
+    .string()
+    .regex(/^[A-Z]{2}$/)
     .optional()
     .describe(
       "Filter by the country where the media was created (ISO 3166-1 alpha-2 country code)",

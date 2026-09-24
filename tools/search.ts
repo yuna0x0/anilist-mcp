@@ -2,12 +2,17 @@ import { z } from "zod";
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import type AniList from "@yuna0x0/anilist-node";
 import type { ConfigSchema } from "../utils/schemas.js";
+import { searchMedia } from "../utils/mediaSearch.js";
 import {
   ActivityFilterTypesSchema,
   MediaFilterTypesSchema,
 } from "../utils/schemas.js";
 
-export function registerSearchTools(server: McpServer, anilist: AniList) {
+export function registerSearchTools(
+  server: McpServer,
+  anilist: AniList,
+  config: z.infer<typeof ConfigSchema>,
+) {
   // anilist.searchEntry.activity()
   server.tool(
     "search_activity",
@@ -63,7 +68,6 @@ export function registerSearchTools(server: McpServer, anilist: AniList) {
     },
   );
 
-  // anilist.searchEntry.anime()
   server.tool(
     "search_anime",
     "Search for anime with query term and filters",
@@ -103,14 +107,9 @@ Otherwise, request is likely to fail or return no results.`,
       readOnlyHint: true,
       openWorldHint: true,
     },
-    async ({ term, filter, page, amount }) => {
+    async (args) => {
       try {
-        const results = await anilist.searchEntry.anime(
-          term,
-          filter,
-          page,
-          amount,
-        );
+        const results = await searchMedia("ANIME", args, config.anilistToken);
         return {
           content: [
             {
@@ -170,7 +169,6 @@ Otherwise, request is likely to fail or return no results.`,
     },
   );
 
-  // anilist.searchEntry.manga()
   server.tool(
     "search_manga",
     "Search for manga with query term and filters",
@@ -210,14 +208,9 @@ Otherwise, request is likely to fail or return no results.`,
       readOnlyHint: true,
       openWorldHint: true,
     },
-    async ({ term, filter, page, amount }) => {
+    async (args) => {
       try {
-        const results = await anilist.searchEntry.manga(
-          term,
-          filter,
-          page,
-          amount,
-        );
+        const results = await searchMedia("MANGA", args, config.anilistToken);
         return {
           content: [
             {
