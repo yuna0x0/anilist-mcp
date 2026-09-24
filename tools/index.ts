@@ -34,7 +34,7 @@ export function registerAllTools(
   registerMediaTools(server, anilist, config);
   registerPeopleTools(server, anilist, config);
   registerRecommendationTools(server, anilist);
-  registerSearchTools(server, anilist);
+  registerSearchTools(server, anilist, config);
   registerThreadTools(server, anilist, config);
   registerUserTools(server, anilist, config);
 }
